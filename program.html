@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Note - All of Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+        body { 
+            margin: 0; 
+            font-family: 'Prompt', sans-serif; 
+            background-color: #fcfcfc; 
+            color: #333; 
+            line-height: 1.6;
+        }
+
+        .program-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 60px 25px;
+            background-color: #ffffff;
+        }
+
+        /* Header Section */
+        .festival-header { 
+            text-align: center; 
+            margin-bottom: 60px; 
+            border-bottom: 1.5px solid #D4AF37;
+            padding-bottom: 40px;
+        }
+        .venue-name {
+            font-family: 'Montserrat', sans-serif;
+            color: #D4AF37;
+            letter-spacing: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .festival-header h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1rem; 
+            color: #777; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            margin: 10px 0;
+        }
+        .concert-title { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.8rem; 
+            margin: 15px 0;
+            color: #111;
+            font-style: italic;
+            line-height: 1.1;
+        }
+        .concert-date { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem; 
+            letter-spacing: 1px;
+            color: #999;
+        }
+
+        /* Section Styling */
+        .part-divider {
+            text-align: center;
+            margin: 80px 0 50px;
+        }
+        .part-divider h2 {
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+            border-bottom: 2px solid #D4AF37;
+            color: #1a1a1a;
+            padding: 0 30px 8px;
+            font-size: 1.5rem;
+            letter-spacing: 6px;
+            font-weight: 400;
+        }
+
+        .choir-block { margin-bottom: 60px; }
+        
+        .choir-name-th {
+            font-family: 'Prompt', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #111;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+        .choir-name-en {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #B8860B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .song-item { margin-bottom: 28px; }
+        .song-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #222;
+            display: block;
+        }
+        .song-composer {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            display: block;
+            margin-top: 2px;
+        }
+        .soloist-info {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 6px;
+            padding-left: 15px;
+            border-left: 1.5px solid #D4AF37;
+        }
+
+        .mass-choir-box {
+            background: #fafaf7;
+            padding: 40px 30px;
+            border-radius: 4px;
+            border: 1px solid #f0e6cc;
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .name-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .person-item {
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .name-th { font-weight: 500; color: #333; display: block; font-size: 1rem; }
+        .name-en { color: #888; display: block; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .instrument { color: #B8860B; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; display: block; margin-top: 2px; }
+
+        .staff-section {
+            margin-top: 80px;
+            padding-top: 50px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .staff-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #B8860B;
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .concert-title { font-size: 2.5rem; }
+            .choir-name-th { font-size: 1.2rem; }
+            .choir-name-en { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="program-container">
+    <header class="festival-header">
+        <div class="venue-name">SURYADHEP MUSIC SALA</div>
+        <h1>Rangsit Choral Festival Concert 2026</h1>
+        <div class="concert-title">“All of Us”</div>
+        <div class="concert-date">8 APRIL 2026 | 7:00 PM</div>
+    </header>
+
+    <div class="part-divider"><h2>PART I</h2></div>
+
+    <section class="choir-block">
+        <div class="choir-name-en">RSU Concert Singers</div>
+        <div class="song-item">
+            <span class="song-title">How Can I Keep from Singing?</span>
+            <span class="song-composer">Ronald Staheli</span>
+            <div class="soloist-info">
+                Onicha Choonjaroen, Soprano<br>
+                Thitiwan Pummawan, Alto
+            </div>
+        </div>
+        <div class="song-item">
+            <span class="song-title">I'm Gonna Sing!</span>
+            <span class="song-composer">arr. Robert Hunter</span>
+        </div>
+    </section>
+
+    <section class="choir-block">
+        <div class="choir-name-th">มหาพิษณุพงษ์คอรัส</div>
+        <div class="choir-name-en">Mahapissanupong Chorus</div>
+        <div class="song-item">
+            <span class="song-title">Come to the Music</span>
+            <span class="song-composer">Joseph Martin</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">Do Not Stand at My Grave and Weep</span>
+            <span class="song-composer">Laura Farnell</span>
+        </div>
+    </section>
+
+    <section class="choir-block">
+        <div class="choir-name-th">คณะนักขับร้องประสานเสียงเยาวชนอาสนวิหารอัสสัมชัญ</div>
+        <div class="choir-name-en">Assumption Cathedral Youth Choir (ACYC)</div>
+        <div class="song-item">
+            <span class="song-title">Make Me a Channel of Your Peace</span>
+            <span class="song-composer">Text: St. Francis of Assisi | Music: Sebastian Temple | Arr. Tim Fettke</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">Songs of a Disney Princess (Choral Medley)</span>
+            <span class="song-composer">Arr. Mac Huff</span>
+        </div>
+    </section>
+
+    <section class="choir-block">
+        <div class="choir-name-th">ชมรมขับร้องประสานเสียงสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</div>
+        <div class="choir-name-en">KMITL Chorus</div>
+        <div class="song-item">
+            <span class="song-title">Hero</span>
+            <span class="song-composer">Robert Delgado</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">Prayer of St. Francis</span>
+            <span class="song-composer">Robert Delgado</span>
+        </div>
+    </section>
+
+    <section class="choir-block">
+        <div class="choir-name-th">คณะนักร้องประสานเสียงโรงเรียนสารสาสน์วิเทศร่มเกล้า</div>
+        <div class="choir-name-en">SWR Chorus</div>
+        <div class="song-item">
+            <span class="song-title">For the Beauty of the Earth</span>
+            <span class="song-composer">Words: Folliott S. Pierpoint | Music: Greg Gilpin</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">Dynamite</span>
+            <span class="song-composer">Words & Music: Jessica Agombar and David Stewart | Arr. Roger Emerson</span>
+        </div>
+    </section>
+
+    <section class="choir-block">
+        <div class="choir-name-th">คณะนักร้องประสานเสียงโรงเรียนหอวัง</div>
+        <div class="choir-name-en">Horwang School Choir</div>
+        <div class="song-item">
+            <span class="song-title">รางวัลแด่คนช่างฝัน</span>
+            <span class="song-composer">จรัล มโนเพ็ชร | Arr. อธิชัย ตระกูลเดช</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">Homeward Bound</span>
+            <span class="song-composer">Marta Keen | Arr. Jay Althouse</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">Betelehemu</span>
+            <span class="song-composer">Via Olatunji and Wendell Whalum | Arr. Barrington Brooks</span>
+        </div>
+    </section>
+
+    <div class="part-divider"><h2>PART II</h2></div>
+
+    <section class="choir-block">
+        <div class="mass-choir-box">
+            <div class="choir-name-en" style="color:#111; margin-bottom:5px; font-size:1.4rem;">Combined Mass Choir</div>
+            <div style="font-size:1.15rem; color:#B8860B; font-weight:500;">Directed by Dr. Jill Burgett</div>
+            <p style="font-size:0.85rem; color:#888; margin-top:20px; max-width:550px; margin-left:auto; margin-right:auto; line-height:1.8;">
+                RSU Choir, Mahapissanupong Chorus, Horwang School Choir, KMITL Chorus, SWR Chorus, ACYC Choir, CUCC
+            </p>
+        </div>
+
+        <div class="song-item">
+            <span class="song-title">Sing Unto God <small>(from Judas Maccabeus)</small></span>
+            <span class="song-composer">G.F. Handel</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">Zigeunerleben</span>
+            <span class="song-composer">Robert Schumann</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">All of Us <small>(from Considering Matthew Shepard)</small></span>
+            <span class="song-composer">Craig Hella Johnson</span>
+        </div>
+        <div class="song-item">
+            <span class="song-title">The Dream Isaiah Saw</span>
+            <span class="song-composer">Glenn Rudolph</span>
+            <div class="soloist-info" style="color:#B8860B; font-weight:500; border-color:#B8860B;">Accompanied by RSU Brass Band & Percussion</div>
+        </div>
+    </section>
+
+    <div class="staff-section">
+        <div class="staff-title">Festival Concert Pianists</div>
+        <div class="name-list-grid">
+            <div class="person-item"><span class="name-th">กนก ผินสุวรรณ</span><span class="name-en">KANOK PINSUWAN</span></div>
+            <div class="person-item"><span class="name-th">คณพศ หว่างตระกูล</span><span class="name-en">KANAPOD WANGTRAKUL</span></div>
+            <div class="person-item"><span class="name-th">จิราภา ทิพย์ประเสริฐ</span><span class="name-en">JIRAPA THIPPRASERT</span></div>
+            <div class="person-item"><span class="name-th">นาวาตรี ดร.นบ ประทีปะเสน</span><span class="name-en">DR. NOP PRATEEPRASEN</span></div>
+            <div class="person-item"><span class="name-th">พรวารินทร์ กรรณศิริสิน</span><span class="name-en">PORNVARIN KANSIRISIN</span></div>
+        </div>
+    </div>
+
+    <div class="staff-section">
+        <div class="staff-title">RSU Brass Band</div>
+        <div class="name-list-grid">
+            <div class="person-item"><span class="name-th">วรดร วะนา</span><span class="name-en">VORADORN WANA</span><span class="instrument">FRENCH HORN</span></div>
+            <div class="person-item"><span class="name-th">ชนาธิป คำยอด</span><span class="name-en">CHANATHIP KHAMYOT</span><span class="instrument">FRENCH HORN</span></div>
+            <div class="person-item"><span class="name-th">อุษา จันทร์เทวี</span><span class="name-en">U-SA JANTEWEE</span><span class="instrument">TRUMPET</span></div>
+            <div class="person-item"><span class="name-th">รชตะ แผงตัน</span><span class="name-en">RACHATA PHAENGTAN</span><span class="instrument">TRUMPET</span></div>
+            <div class="person-item"><span class="name-th">วรากร สมบัติมานะผล</span><span class="name-en">WARAGON SOMBATMANAPON</span><span class="instrument">TRUMPET</span></div>
+            <div class="person-item"><span class="name-th">จิรายุ ใจเปียง</span><span class="name-en">JIRAYU JAIPIANG</span><span class="instrument">TROMBONE</span></div>
+            <div class="person-item"><span class="name-th">สิรวิชญ์ หุดากร</span><span class="name-en">SIRAWICH HUDAKORN</span><span class="instrument">TROMBONE</span></div>
+            <div class="person-item"><span class="name-th">ธนโชติ ราคาแพง</span><span class="name-en">TANACHOT RAKAPANG</span><span class="instrument">BASS TROMBONE</span></div>
+            <div class="person-item"><span class="name-th">อภิสิทธิ์ เกื้อกูล</span><span class="name-en">APHISIT KUEAKUN</span><span class="instrument">TUBA</span></div>
+            <div class="person-item"><span class="name-th">ภูผา วงศ์ศรีวิวัฒน์</span><span class="name-en">POOPHA WONGSIWIWAT</span><span class="instrument">TUBA</span></div>
+        </div>
+    </div>
+
+    <div class="staff-section">
+        <div class="staff-title">Rangsit Percussion Group</div>
+        <div class="name-list-grid">
+            <div class="person-item"><span class="name-th">ณัฐนันท์ คงแก้ว</span><span class="name-en">NATTANAN KHONGKAEW</span></div>
+            <div class="person-item"><span class="name-th">พีรพล เดชอุดม</span><span class="name-en">PEERAPHON DATUDOM</span></div>
+            <div class="person-item"><span class="name-th">อัครวิทย์ ประทุมวัน</span><span class="name-en">AKRAVIT PRATHUMWAN</span></div>
+            <div class="person-item"><span class="name-th">นาธาน เทน</span><span class="name-en">NATHAN THAIN</span></div>
+        </div>
+    </div>
+
+    <footer style="text-align:center; padding:80px 0 20px; font-size:0.75rem; color:#ccc; letter-spacing:1px; margin-top:50px;">
+        &copy; 2026 RANGSIT UNIVERSITY CONSERVATORY OF MUSIC
+    </footer>
+</div>
+
+</body>
+</html>
