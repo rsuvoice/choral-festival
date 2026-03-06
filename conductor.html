@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Conductor - Dr. Jill Burgett</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Montserrat:wght@400;700&display=swap');
   
+  body {
+    margin: 0;
+    background-color: #fafafa;
+  }
+
   .bio-page {
     max-width: 1000px;
     margin: 60px auto;
@@ -11,6 +19,35 @@
     font-family: 'Kanit', sans-serif;
     color: #333;
     line-height: 1.9;
+    animation: fadeIn 0.8s ease-out; /* เพิ่มแอนิเมชันตอนเปิดหน้าเว็บ */
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ปุ่มย้อนกลับ */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #888;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+  }
+
+  .back-btn:hover {
+    color: #D4AF37;
+  }
+
+  .back-btn::before {
+    content: '←';
+    margin-right: 8px;
+    font-size: 1.2rem;
   }
 
   /* Section ด้านบน: รูปและชื่อ */
@@ -92,14 +129,17 @@
   @media (max-width: 850px) {
     .bio-header { flex-direction: column; align-items: center; text-align: center; }
     .bio-photo { flex: none; width: 280px; margin-bottom: 40px; }
-    .quote-text { border-left: none; padding-left: 0; border-top: 1px solid #D4AF37; padding-top: 15px; }
+    .quote-text { border-left: none; padding-left: 0; border-top: 1px solid #D4AF37; padding-top: 15px; margin-top: 15px; }
     h2 { font-size: 2.2rem; }
+    .back-btn { margin-bottom: 20px; }
   }
 </style>
 </head>
 <body>
 
 <div class="bio-page">
+  <a href="index.html" class="back-btn">BACK TO PARTICIPATING CHOIRS</a>
+
   <div class="bio-header">
     <div class="bio-photo">
       <img src="https://drive.google.com/thumbnail?id=1zfWGwmHsuvkMEHVxcWUDsc1gNn1hE4Lj&sz=w1000" alt="Dr. Jill Burgett">
