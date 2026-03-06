@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festival Schedule</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Montserrat:wght@400;700&display=swap');
   
@@ -10,7 +13,23 @@
     max-width: 1000px;
     margin: 50px auto;
     padding: 0 20px;
+    animation: fadeIn 0.8s ease-out; /* เพิ่มแอนิเมชันให้สอดคล้องกับหน้าอื่นๆ */
   }
+
+  /* ปุ่มย้อนกลับ */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #888;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+  }
+  .back-btn:hover { color: #D4AF37; }
+  .back-btn::before { content: '←'; margin-right: 8px; font-size: 1.2rem; }
 
   .header-section { text-align: center; margin-bottom: 40px; }
   .header-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin: 0; color: #111; }
@@ -37,7 +56,7 @@
   .tab-btn.active { background: #D4AF37; color: #fff; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
 
   /* Table Styling */
-  .tab-content { display: none; animation: fadeIn 0.5s ease; }
+  .tab-content { display: none; animation: fadeInTab 0.5s ease; }
   .tab-content.active { display: block; }
 
   .day-info {
@@ -137,7 +156,8 @@
     display: block;
   }
 
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInTab { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (max-width: 768px) {
     .time-cell { width: auto; }
@@ -150,6 +170,8 @@
 <body>
 
 <div class="schedule-container">
+  <a href="index.html" class="back-btn">BACK TO HOME</a>
+
   <div class="header-section">
     <p>Festival Schedule</p>
     <h2>Schedule & Venue</h2>
@@ -240,7 +262,7 @@
             <td class="time-cell" style="color:#D4AF37;">7:00 p.m.</td>
             <td>
               <div style="font-size:1.2rem; letter-spacing:1px; font-weight: 700;">FESTIVAL CONCERT: "ALL OF US"</div>
-              <a href="https://sites.google.com/rsu.ac.th/rangsitchoralfestival/concert-program" target="_blank" class="concert-btn">View Concert Program</a>
+              <a href="program.html" class="concert-btn">View Concert Program</a>
             </td>
             <td class="venue-cell">Suryadhep Music Sala</td>
           </tr>
