@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Montserrat:wght@400;700&display=swap');
+  
+  .bio-page {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 25px;
+    font-family: 'Kanit', sans-serif;
+    color: #333;
+    line-height: 1.9;
+  }
+
+  /* Section ด้านบน: รูปและชื่อ */
+  .bio-header {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .bio-photo {
+    flex: 0 0 320px;
+  }
+
+  .bio-photo img {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 15px 15px 0px #D4AF37;
+  }
+
+  .bio-intro-text {
+    flex: 1;
+  }
+
+  .guest-label {
+    color: #D4AF37;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    margin: 0;
+    color: #111;
+    line-height: 1.1;
+  }
+
+  .current-position {
+    font-size: 1.25rem;
+    color: #666;
+    margin: 20px 0;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .quote-text {
+    font-style: italic;
+    color: #888;
+    border-left: 2px solid #D4AF37;
+    padding-left: 20px;
+    margin-top: 25px;
+    font-size: 1rem;
+  }
+
+  /* ส่วนเนื้อหาประวัติ */
+  .bio-body {
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-align: justify;
+    margin-top: 30px;
+  }
+
+  .bio-body p {
+    margin-bottom: 25px;
+  }
+
+  .highlight-gold {
+    color: #b08d1e;
+    font-weight: 500;
+  }
+
+  @media (max-width: 850px) {
+    .bio-header { flex-direction: column; align-items: center; text-align: center; }
+    .bio-photo { flex: none; width: 280px; margin-bottom: 40px; }
+    .quote-text { border-left: none; padding-left: 0; border-top: 1px solid #D4AF37; padding-top: 15px; }
+    h2 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bio-page">
+  <div class="bio-header">
+    <div class="bio-photo">
+      <img src="https://drive.google.com/thumbnail?id=1zfWGwmHsuvkMEHVxcWUDsc1gNn1hE4Lj&sz=w1000" alt="Dr. Jill Burgett">
+    </div>
+    <div class="bio-intro-text">
+      <span class="guest-label">Guest Conductor</span>
+      <h2>Dr. Jill Burgett</h2>
+      <div class="current-position">
+        Professor and Director of Choral Activities at the University of Northern Colorado
+      </div>
+      <div class="quote-text">
+        "A distinguished conductor and scholar whose artistic leadership has graced prestigious stages across Europe, North America, and Asia."
+      </div>
+    </div>
+  </div>
+
+  <div class="bio-body">
+    <p>
+      <b>Dr. Jill Burgett</b> serves as Professor and Director of Choral Activities at the <span class="highlight-gold">University of Northern Colorado (UNC)</span>. A leader in choral excellence, she conducts the UNC Concert Choir and Chamber Choir while overseeing the graduate-level choral methods and conducting curricula. Prior to her tenure at UNC, she held the position of Associate Director of Choral Activities at Ball State University.
+    </p>
+    
+    <p>
+      An accomplished academic, Dr. Burgett earned her <b>Doctor of Arts</b> from Ball State University, where she was honored as the recipient of the Don Neuen fellowship. She further holds a Master of Music from BSU and a Bachelor of Music from Heidelberg University. Her professional journey is rooted in two decades of conducting experience within the Indiana public school system, fostering a deep commitment to music education.
+    </p>
+    
+    <p>
+      Dr. Burgett’s leadership extends into the broader choral community, having served on the boards of Indiana and Colorado <span class="highlight-gold">ACDA</span> (as President), the Central Division, and the National Collegiate Choral Festival. As a prolific clinician and speaker, she is a frequent guest conductor for All-State Choirs and her own ensembles have been featured at prominent ACDA conferences across the United States.
+    </p>
+    
+    <p>
+      Her international artistic presence is truly global. She has led the UNC Chamber Choir on tours through the cultural hearts of <span class="highlight-gold">Barcelona, Paris, Vienna, Prague, Budapest, and Rome</span>. Beyond conducting, she is a sought-after international lecturer, sharing her expertise in <b>Beijing, Rome, Mexico City, Puebla, London, and Bangkok</b>. Her research specialized in Latin American and Catalan choral music, as well as refined rehearsal and conducting techniques, continues to influence choral pedagogy worldwide.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
