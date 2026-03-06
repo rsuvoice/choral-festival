@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Montserrat:wght@400;700&display=swap');
+  
+  body { margin: 0; font-family: 'Kanit', sans-serif; background-color: #f4f4f4; color: #333; }
+  
+  .schedule-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .header-section { text-align: center; margin-bottom: 40px; }
+  .header-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin: 0; color: #111; }
+  .header-section p { color: #D4AF37; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* Tab System */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .tab-btn {
+    padding: 12px 25px;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.3s;
+    color: #666;
+  }
+  .tab-btn.active { background: #D4AF37; color: #fff; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+
+  /* Table Styling */
+  .tab-content { display: none; animation: fadeIn 0.5s ease; }
+  .tab-content.active { display: block; }
+
+  .day-info {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 4px solid #D4AF37;
+    margin-bottom: 30px;
+  }
+  
+  .day-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 10px; color: #D4AF37; }
+  .day-desc { font-weight: 300; margin-bottom: 20px; color: #666; line-height: 1.6; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
+  th { background: #f9f9f9; text-align: left; padding: 15px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: #888; border-bottom: 2px solid #eee; }
+  td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle; }
+  
+  .time-cell { font-family: 'Montserrat', sans-serif; font-weight: 700; width: 180px; color: #111; }
+  .venue-cell { font-size: 0.85rem; color: #D4AF37; font-weight: 600; text-transform: uppercase; }
+  .choir-name { font-weight: 600; display: block; }
+  .choir-sub { font-size: 0.85rem; color: #777; font-weight: 300; }
+
+  .highlight-row { background: rgba(212, 175, 55, 0.05); font-weight: 600; }
+  
+  /* Participants List for Day 9 */
+  .participant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .participant-item {
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border-left: 3px solid #D4AF37;
+    font-size: 0.95rem;
+  }
+
+  /* Buttons */
+  .venue-link {
+    display: inline-block;
+    background: #D4AF37;
+    color: #000;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    transition: 0.3s;
+  }
+  .venue-link:hover { background: #fff; transform: translateY(-3px); }
+
+  .concert-btn {
+    display: inline-block;
+    background: #D4AF37;
+    color: #111;
+    padding: 8px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
+  }
+  .concert-btn:hover { background: #fff; color: #111; transform: translateY(-2px); }
+
+  /* Venue Map Section */
+  .venue-section {
+    margin-top: 60px;
+    background: #111;
+    color: #fff;
+    padding: 50px 20px;
+    border-radius: 15px;
+    text-align: center;
+  }
+  .venue-section h3 { font-family: 'Montserrat', sans-serif; color: #D4AF37; margin-bottom: 5px; }
+  .venue-section p { margin-top: 0; color: #bbb; margin-bottom: 25px; }
+
+  /* Map Container */
+  .map-responsive {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  }
+  .map-responsive iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    display: block;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    .time-cell { width: auto; }
+    .tabs { flex-direction: column; }
+    .tab-btn { width: 100%; }
+    .map-responsive iframe { height: 250px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="schedule-container">
+  <div class="header-section">
+    <p>Festival Schedule</p>
+    <h2>Schedule & Venue</h2>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'day1')">APRIL 7</button>
+    <button class="tab-btn" onclick="openTab(event, 'day2')">APRIL 8</button>
+    <button class="tab-btn" onclick="openTab(event, 'day3')">APRIL 9</button>
+  </div>
+
+  <div id="day1" class="tab-content active">
+    <div class="day-info">
+      <div class="day-title">Choir Clinics and Mass Choir Rehearsal</div>
+      <div class="day-desc">
+        Each choir will receive individual feedback and guidance from the guest clinician. <br>
+        <span style="color: #D4AF37; font-weight: 600;">(Open for observers)</span>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>TIME</th>
+            <th>CHOIR / ACTIVITY</th>
+            <th>VENUE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time-cell">1:00–1:25 p.m.</td>
+            <td><span class="choir-name">Mahapissanupong Chorus</span><span class="choir-sub">มหาพิษณุพงษ์คอรัส</span></td>
+            <td class="venue-cell">Suryadhep Music Sala</td>
+          </tr>
+          <tr>
+            <td class="time-cell">1:30–1:55 p.m.</td>
+            <td><span class="choir-name">Horwang School Choir</span><span class="choir-sub">คณะนักร้องประสานเสียงโรงเรียนหอวัง</span></td>
+            <td class="venue-cell">Suryadhep Music Sala</td>
+          </tr>
+          <tr>
+            <td class="time-cell">2:00–2:25 p.m.</td>
+            <td><span class="choir-name">KMITL Chorus</span><span class="choir-sub">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</span></td>
+            <td class="venue-cell">Suryadhep Music Sala</td>
+          </tr>
+          <tr>
+            <td class="time-cell">2:30–2:55 p.m.</td>
+            <td><span class="choir-name">SWR Chorus</span><span class="choir-sub">โรงเรียนสารสาสน์วิเทศร่มเกล้า</span></td>
+            <td class="venue-cell">Suryadhep Music Sala</td>
+          </tr>
+          <tr>
+            <td class="time-cell">3:00–3:25 p.m.</td>
+            <td><span class="choir-name">ACYC Choir</span><span class="choir-sub">เยาวชนอาสนวิหารอัสสัมชัญ</span></td>
+            <td class="venue-cell">Suryadhep Music Sala</td>
+          </tr>
+          <tr class="highlight-row">
+            <td class="time-cell">4:00–7:00 p.m.</td>
+            <td>Mass Choir Rehearsal <br><small style="font-weight:300;">(Open for observers)</small></td>
+            <td class="venue-cell">Suryadhep Music Sala</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="day2" class="tab-content">
+    <div class="day-info">
+      <div class="day-title">Dress Rehearsal and Festival Concert</div>
+      <div class="day-desc">Part I: Featured performances by participating choirs. <br>Part II: Combined Mass Choir under the direction of Prof. Dr. Jill Burgett.</div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>TIME</th>
+            <th>ACTIVITY</th>
+            <th>VENUE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="3" style="background:#f0f0f0; font-size:0.7rem; letter-spacing:1px; padding:5px 15px;">SOUND CHECK SESSION</td></tr>
+          <tr><td class="time-cell">12:00–12:20 p.m.</td><td>RSU Choir</td><td class="venue-cell">Suryadhep Music Sala</td></tr>
+          <tr><td class="time-cell">12:25–12:45 p.m.</td><td>Mahapissanupong Chorus</td><td class="venue-cell">Suryadhep Music Sala</td></tr>
+          <tr><td class="time-cell">12:50–1:10 p.m.</td><td>Horwang School Choir</td><td class="venue-cell">Suryadhep Music Sala</td></tr>
+          <tr><td class="time-cell">1:15–1:35 p.m.</td><td>KMITL Chorus</td><td class="venue-cell">Suryadhep Music Sala</td></tr>
+          <tr><td class="time-cell">1:40–2:00 p.m.</td><td>SWR Chorus</td><td class="venue-cell">Suryadhep Music Sala</td></tr>
+          <tr><td class="time-cell">2:05–2:25 p.m.</td><td>ACYC Choir</td><td class="venue-cell">Suryadhep Music Sala</td></tr>
+          <tr class="highlight-row"><td class="time-cell">3:00–5:00 p.m.</td><td>Mass Choir Dress Rehearsal</td><td class="venue-cell">Suryadhep Music Sala</td></tr>
+          <tr><td class="time-cell">5:00–7:00 p.m.</td><td>Dinner Break</td><td class="venue-cell">-</td></tr>
+          <tr style="background:#111; color:#fff;">
+            <td class="time-cell" style="color:#D4AF37;">7:00 p.m.</td>
+            <td>
+              <div style="font-size:1.2rem; letter-spacing:1px; font-weight: 700;">FESTIVAL CONCERT: "ALL OF US"</div>
+              <a href="https://sites.google.com/rsu.ac.th/rangsitchoralfestival/concert-program" target="_blank" class="concert-btn">View Concert Program</a>
+            </td>
+            <td class="venue-cell">Suryadhep Music Sala</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="day3" class="tab-content">
+    <div class="day-info">
+      <div class="day-title">Choral Conducting Masterclass</div>
+      <div class="day-desc">
+        Demonstration Choir: <b>RSU Choir</b><br>
+      </div>
+      
+      <div class="day-title" style="font-size:1.1rem; margin-top:20px;">Active Participants</div>
+      <div class="participant-grid">
+        <div class="participant-item">1. วรากร ทองสายออ</div>
+        <div class="participant-item">2. กีรติ ราชพัฒน์</div>
+        <div class="participant-item">3. ทรงพล เผ่าเสถียรพันธุ์</div>
+        <div class="participant-item">4. วรินทร มุมเรือนทอง</div>
+        <div class="participant-item">5. ศิลา ฮาดนารี</div>
+        <div class="participant-item">6. ชนาภรณ์ ทวีชาติ</div>
+        <div class="participant-item">7. ภัทรานิษฐ์ วิจิตรสัมพันธ์</div>
+        <div class="participant-item">8. ภูริชญ์ โกษาแสง</div>
+        <div class="participant-item">9. ปราชญ์ โรจนวิศาส</div>
+        <div class="participant-item">10. อธิพันธ์ วามะลุน</div>
+        <div class="participant-item">11. ทยากร เมฆสุต</div>
+      </div>
+
+      <div style="margin-top:30px;">
+        <span style="font-family:'Montserrat'; font-weight:700;">TIME:</span> 4:00–6:00 p.m. <br>
+        <span style="font-family:'Montserrat'; font-weight:700;">VENUE:</span> Room 215, Conservatory of Music (Building 17)
+      </div>
+    </div>
+  </div>
+
+  <div class="venue-section">
+    <h3>SURYADHEP MUSIC SALA</h3>
+    <p>Conservatory of Music, Rangsit University</p>
+    
+    <div class="map-responsive">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.0673426189574!2d100.58557371527745!3d13.963495290412854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e283ab0b95b879%3A0xc3b5ed5808bc88b!2sSuryadhep%20Music%20Sala!5e0!3m2!1sen!2sth!4v1683884841964!5m2!1sen!2sth" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <a href="https://maps.app.goo.gl/YourRealLinkHere" target="_blank" class="venue-link">OPEN IN MAPS APP</a>
+  </div>
+</div>
+
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
+
+</body>
+</html>
