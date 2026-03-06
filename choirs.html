@@ -172,7 +172,7 @@ RSU Choir regularly performs at university events, concerts, and special occasio
         },
         {
             id: 'acyc',
-            name: 'ACYC',
+            name: 'ACYC Choir',
             sub: 'อาสนวิหารอัสสัมชัญและโรงเรียนอัสสัมชัญคอนแวนต์',
             img: 'https://drive.google.com/thumbnail?id=12NT9YigaOPXMua6WlMKxttKOFvJeleiN&sz=w1200',
             history: `คณะนักขับร้องเยาวชนอาสนวิหารอัสสัมชัญ (Assumption Cathedral Youth Choir – ACYC) หรือที่รู้จักในนาม “เยาวชนไตรอัสสัมชัญ” เกิดจากความร่วมมือของนักเรียนจากสามสถาบันการศึกษารอบอาสนวิหารอัสสัมชัญ ได้แก่ โรงเรียนอัสสัมชัญ โรงเรียนอัสสัมชัญคอนแวนต์ และโรงเรียนอัสสัมชัญศึกษา
@@ -181,7 +181,6 @@ RSU Choir regularly performs at university events, concerts, and special occasio
 หมายเหตุ: สำหรับการเข้าร่วมเทศกาลขับร้องประสานเสียงครั้งนี้ เป็นสมาชิกตัวแทนจากโรงเรียนอัสสัมชัญคอนแวนต์`,
             conductor: 'ปาณิสรา มโนประกิจ — PANISARA MANOPRAKIT',
             pianist: 'พรวารินทร์ กรรณศิริสิน — PORNVARIN KANSIRISIN',
-            // ใช้โครงสร้างแบบ Array ([...]) เพื่อให้รองรับหลายข้อมูลได้
             extraInfo: [
                 { label: 'Choir Manager', content: 'บาทหลวงบุญชรัสมิ์ สุขสว่าง — REV. FR. BOONCHARAT SUKSAWANG' }
             ],
@@ -243,10 +242,9 @@ RSU Choir regularly performs at university events, concerts, and special occasio
 Horwang School Choir is the choir of Horwang School, established through the choral singing course under Horwang Music Academy. The choir aims to systematically develop students based on Western music academic principles, covering vocal technique training, breath control, diction and pronunciation, listening skills, and ensemble balance, as well as musical interpretation and artistic expression. The learning process integrates both theory and practical training through regular rehearsals and teamwork, while also promoting discipline, responsibility, and unity among students.
 The choir plays an important role in supporting various school events and has continuously achieved outstanding accomplishments, including First Prize at the Student Arts and Crafts Competition at the Educational Service Area level (71st–73rd), First Prize with the Royal Trophy at the 6th Valaya Alongkorn Music Competition 2023, First Runner-up at the 8th Valaya Alongkorn Music Competition 2025, First Prize at the national level of the Student Arts and Crafts Competition (70th), and a Gold Prize in the Ensemble category at the Sugree Charoensook International Music Competition 2022, as well as participating in several university-level choral festivals.`,
             conductor: 'ณัฐธิตา วงศ์พรหม — NATTHITA WONGPROM',
-            pianist: '-', // หากไม่ต้องการให้หัวข้อ Pianist โชว์ ให้ปล่อยไว้เป็นขีดครับ
-            // ใส่ข้อมูลหลายตำแหน่งในรูปของ Array [...]
+            pianist: '-', 
             extraInfo: [
-                { label: 'Musicians', content: 'จิรัฏฐ์ เศวตามร์ (Pianist) – JIRATH SEWATARMRA, ชณัดดา ปราโมช (Percussion) – CHANUTDA PRAMOJ, ญาณกร จารุตามระ (Percussion) – YANAKORN JARUTAMRA, ธารพระกร บูรณะพงษ์ (Percussion) – THARNPRAKORN BURANAPONG, วทัญญู สงวนไว้ (Percussion) – WATANYOO SANGUANVAI' },
+                { label: 'Musicians', content: 'จิรัฏฐ์ เศวตามร์ Pianist – JIRATH SEWATARMRA, ชณัดดา ปราโมช Percussion – CHANUTDA PRAMOJ, ญาณกร จารุตามระ Percussion – YANAKORN JARUTAMRA, ธารพระกร บูรณะพงษ์ Percussion – THARNPRAKORN BURANAPONG, วทัญญู สงวนไว้ Percussion – WATANYOO SANGUANVAI' },
                 { label: 'Choir Manager', content: 'นพดล โถวิเชียร' }
             ],
             members: {
@@ -342,7 +340,6 @@ The choir plays an important role in supporting various school events and has co
 นอกจากนี้ SWR Chorus ยังได้เข้าร่วมการแสดงในเทศกาลดนตรีประสานเสียง และเข้าร่วมการแข่งขันทั้งในระดับประเทศและระดับนานาชาติ เพื่อเสริมสร้างประสบการณ์และทักษะด้านการขับร้องประสานเสียงให้กับนักเรียน ตามคติพจน์ของโรงเรียน “AGE QUOD AGIS” – ทำอะไร ทำจริง`,
             conductor: 'สุคณัชญ์ โพธิ์ศรีสุข — SUKANUT POSRISOOK',
             pianist: 'ภัทรธร ธีระพจน์',
-            // ใส่ข้อมูลหลายตำแหน่งในรูปของ Array [...]
             extraInfo: [
                 { label: 'Assistant Conductor', content: 'มิตรชัย สมูบูรณ์สุขวนา' },
                 { label: 'Choir Manager', content: 'จันทร์อำพร ปิงยศ' }
@@ -430,32 +427,44 @@ The choir plays an important role in supporting various school events and has co
                     ${extraHtml}
                 </div>
 
-                <div class="section-title">Choir Members</div>
+                <div class="section-title">Members</div>
                 <div class="member-grid">
                     ${membersHtml}
                 </div>
+
+                <div class="section-title">Repertoire</div>
+                <div class="repertoire-box">
+                    ${data.repertoire ? data.repertoire.map((song, index) => `
+                        <div style="margin-bottom: ${index !== data.repertoire.length - 1 ? '15px' : '0'};">
+                            <span class="song-title">${song.title}</span>
+                            <span class="song-meta">${song.meta}</span>
+                        </div>
+                    `).join('') : ''}
+                </div>
+
             </div>
         `;
 
+        // นำ HTML ไปใส่ใน Modal และแสดงผล
         document.getElementById('modalData').innerHTML = html;
         document.getElementById('choirModal').style.display = 'block';
     }
 
+    // ฟังก์ชันสำหรับปิด Modal
     function closeModal() {
         document.getElementById('choirModal').style.display = 'none';
     }
 
-    // ปิด Modal เมื่อคลิกพื้นที่ว่างข้างนอก
+    // ปิด Modal เมื่อคลิกพื้นที่ว่างๆ ด้านนอกกล่อง
     window.onclick = function(event) {
         const modal = document.getElementById('choirModal');
         if (event.target == modal) {
-            modal.style.display = "none";
+            closeModal();
         }
     }
 
-    // โหลดหน้าจอเริ่มต้น
-    window.onload = createCards;
+    // เรียกใช้งานตอนโหลดหน้าเว็บเพื่อสร้างหน้าต่างหลัก
+    createCards();
 </script>
-
 </body>
 </html>
