@@ -8,7 +8,22 @@
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Montserrat:wght@400;700&display=swap');
         
         body { margin: 0; font-family: 'Kanit', sans-serif; background-color: #fafafa; color: #333; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 25px; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 25px; animation: fadeIn 0.8s ease-out; }
+
+        /* ปุ่มย้อนกลับ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #888;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        .back-btn:hover { color: #D4AF37; }
+        .back-btn::before { content: '←'; margin-right: 8px; font-size: 1.2rem; }
 
         .header-section { text-align: center; margin-bottom: 60px; }
         .header-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin: 0; color: #111; text-transform: uppercase; letter-spacing: 2px; }
@@ -84,6 +99,8 @@
 <body>
 
 <div class="container">
+    <a href="index.html" class="back-btn">BACK TO HOME</a>
+
     <div class="header-section">
         <p>The Celebration of Harmony</p>
         <h2>Participating Choirs</h2>
@@ -97,31 +114,23 @@
 </div>
 
 <script>
-    // ฟังก์ชันใหม่ที่แยกภาษาไทยและอังกฤษออกจากกัน
+    // ฟังก์ชันแยกภาษาไทยและอังกฤษ
     function formatNames(text) {
         if (!text || text === '-') return '-';
         
-        // แยกรายชื่อด้วยจุลภาค หรือ ขึ้นบรรทัดใหม่
         const names = text.split(/,|\n/).map(n => n.trim()).filter(n => n !== "");
         
         return names.map(name => {
-            // ลบตัวเลขลำดับข้างหน้า (ถ้ามี เช่น 1. )
             let cleanName = name.replace(/^\d+\.\s*/, '');
-            
-            // แยกส่วนไทยและอังกฤษออกจากกัน (ตรวจจับจาก — , – หรือช่องว่างยาวๆ)
-            // โดยเอาขีดออกทั้งหมด
             let parts = cleanName.split(/\s*[—–-]\s*/);
             
             if (parts.length > 1) {
-                // ถ้ามีทั้งไทยและอังกฤษ
                 return `
                     <span class="name-row">
                         ${parts[0].trim()}<br>
                         <span class="eng-name">${parts[1].trim()}</span>
                     </span>`;
             } else {
-                // ถ้ามีแค่ภาษาเดียว หรือแยกด้วยขีดไม่ได้ผล ให้ลองหาช่องว่างระหว่างไทยกับอังกฤษ
-                // โดยมองหาจุดที่เปลี่ยนจากภาษาไทยเป็นตัวอักษร A-Z
                 let match = cleanName.match(/([^\w\s]+)\s+([A-Z\s]+)/);
                 if (match) {
                     return `
@@ -341,7 +350,7 @@ The choir plays an important role in supporting various school events and has co
 
     function createCards() {
         const grid = document.getElementById('choirGrid');
-        choirGrid.innerHTML = ''; // Clear existing to prevent duplicates if called again
+        grid.innerHTML = ''; // Clear existing to prevent duplicates if called again
         choirs.forEach(choir => {
             const card = document.createElement('div');
             card.className = 'choir-card';
@@ -421,25 +430,24 @@ The choir plays an important role in supporting various school events and has co
         `;
         
         document.getElementById('modalData').innerHTML = html;
-        document.getElementById('choirModal').style.display = "block";
-        document.body.style.overflow = "hidden"; // ปิดการเลื่อนหน้าจอพื้นหลัง
+        document.getElementById('choirModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // ป้องกันการเลื่อนหน้าเว็บพื้นหลังตอนเปิด Modal
     }
 
-    // ฟังก์ชันสำหรับปิด Modal (ที่เพิ่มเข้ามาใหม่)
     function closeModal() {
-        document.getElementById('choirModal').style.display = "none";
-        document.body.style.overflow = "auto"; // เปิดการเลื่อนหน้าจอพื้นหลังกลับมาปกติ
+        document.getElementById('choirModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // คืนค่าให้หน้าเว็บเลื่อนได้ปกติ
     }
 
-    // ปิด Modal เมื่อคลิกที่พื้นที่สีดำด้านนอก (ที่เพิ่มเข้ามาใหม่)
+    // ปิด Modal เมื่อคลิกพื้นที่ว่างข้างนอก
     window.onclick = function(event) {
         const modal = document.getElementById('choirModal');
-        if (event.target === modal) {
+        if (event.target == modal) {
             closeModal();
         }
     }
 
-    // เรียกให้สร้างการ์ดวงดนตรีเมื่อโหลดหน้าเว็บ (ที่เพิ่มเข้ามาใหม่)
+    // เริ่มสร้างการ์ดเมื่อโหลดเสร็จ
     createCards();
 
 </script>
