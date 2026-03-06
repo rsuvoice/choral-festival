@@ -181,7 +181,10 @@ RSU Choir regularly performs at university events, concerts, and special occasio
 หมายเหตุ: สำหรับการเข้าร่วมเทศกาลขับร้องประสานเสียงครั้งนี้ เป็นสมาชิกตัวแทนจากโรงเรียนอัสสัมชัญคอนแวนต์`,
             conductor: 'ปาณิสรา มโนประกิจ — PANISARA MANOPRAKIT',
             pianist: 'พรวารินทร์ กรรณศิริสิน — PORNVARIN KANSIRISIN',
-            extraInfo: { label: 'Choir Manager', content: 'บาทหลวงบุญชรัสมิ์ สุขสว่าง — REV. FR. BOONCHARAT SUKSAWANG' },
+            // ใช้โครงสร้างแบบ Array ([...]) เพื่อให้รองรับหลายข้อมูลได้
+            extraInfo: [
+                { label: 'Choir Manager', content: 'บาทหลวงบุญชรัสมิ์ สุขสว่าง — REV. FR. BOONCHARAT SUKSAWANG' }
+            ],
             members: {
                 "Soprano": `กนิษฐา ศรีสุขสวัสดิ์ — KANISTHA SRISUKSAVAS
 กวินญาดา กันตวัฒน์สกุล — KAWINYADA GANTAWATSAKUL
@@ -240,11 +243,12 @@ RSU Choir regularly performs at university events, concerts, and special occasio
 Horwang School Choir is the choir of Horwang School, established through the choral singing course under Horwang Music Academy. The choir aims to systematically develop students based on Western music academic principles, covering vocal technique training, breath control, diction and pronunciation, listening skills, and ensemble balance, as well as musical interpretation and artistic expression. The learning process integrates both theory and practical training through regular rehearsals and teamwork, while also promoting discipline, responsibility, and unity among students.
 The choir plays an important role in supporting various school events and has continuously achieved outstanding accomplishments, including First Prize at the Student Arts and Crafts Competition at the Educational Service Area level (71st–73rd), First Prize with the Royal Trophy at the 6th Valaya Alongkorn Music Competition 2023, First Runner-up at the 8th Valaya Alongkorn Music Competition 2025, First Prize at the national level of the Student Arts and Crafts Competition (70th), and a Gold Prize in the Ensemble category at the Sugree Charoensook International Music Competition 2022, as well as participating in several university-level choral festivals.`,
             conductor: 'ณัฐธิตา วงศ์พรหม — NATTHITA WONGPROM',
-            musician: 'จิรัฏฐ์ เศวตามร์ Pianist – JIRATH SEWATARMRA, ชณัดดา ปราโมช Percussion – CHANUTDA PRAMOJ, ญาณกร จารุตามระ Percussion – YANAKORN JARUTAMRA, ธารพระกร บูรณะพงษ์ Percussion – THARNPRAKORN BURANAPONG, วทัญญู สงวนไว้ Percussion – WATANYOO SANGUANVAI',
-            extraInfo: { 
-              label: 'Choir Manager', 
-              content: 'นพดล โถวิเชียร' 
-            },
+            pianist: '-', // หากไม่ต้องการให้หัวข้อ Pianist โชว์ ให้ปล่อยไว้เป็นขีดครับ
+            // ใส่ข้อมูลหลายตำแหน่งในรูปของ Array [...]
+            extraInfo: [
+                { label: 'Musicians', content: 'จิรัฏฐ์ เศวตามร์ Pianist – JIRATH SEWATARMRA, ชณัดดา ปราโมช Percussion – CHANUTDA PRAMOJ, ญาณกร จารุตามระ Percussion – YANAKORN JARUTAMRA, ธารพระกร บูรณะพงษ์ Percussion – THARNPRAKORN BURANAPONG, วทัญญู สงวนไว้ Percussion – WATANYOO SANGUANVAI' },
+                { label: 'Choir Manager', content: 'นพดล โถวิเชียร' }
+            ],
             members: {
                 "Soprano": `พัทธนันท์ สายเสนา – PATTANUN SAISENA
 ชุติรดา แสนใจงาม – CHUTILADA SEANJAIGAM
@@ -338,8 +342,11 @@ The choir plays an important role in supporting various school events and has co
 นอกจากนี้ SWR Chorus ยังได้เข้าร่วมการแสดงในเทศกาลดนตรีประสานเสียง และเข้าร่วมการแข่งขันทั้งในระดับประเทศและระดับนานาชาติ เพื่อเสริมสร้างประสบการณ์และทักษะด้านการขับร้องประสานเสียงให้กับนักเรียน ตามคติพจน์ของโรงเรียน “AGE QUOD AGIS” – ทำอะไร ทำจริง`,
             conductor: 'สุคณัชญ์ โพธิ์ศรีสุข — SUKANUT POSRISOOK',
             pianist: 'ภัทรธร ธีระพจน์',
-            extraInfo: { label: 'Assistant Conductor', content: 'มิตรชัย สมูบูรณ์สุขวนา' },
-            extraInfo: { label: 'Choir Manager', content: 'จันทร์อำพร ปิงยศ' },
+            // ใส่ข้อมูลหลายตำแหน่งในรูปของ Array [...]
+            extraInfo: [
+                { label: 'Assistant Conductor', content: 'มิตรชัย สมูบูรณ์สุขวนา' },
+                { label: 'Choir Manager', content: 'จันทร์อำพร ปิงยศ' }
+            ],
             members: {
                 "Soprano": `ภรณ์ชนก อำรุงสาคร, นราชา เสาสีอ่อน, อุรชา คีรีเอกสถิต, ธนวิทย์ ตันชัย, โปรดปราน อินสุวรรณ์, ติณณา ครองไตรรัตน์, นันท์นภัส ศรชัย, ปภาวรินทร์ ทองประภา, เมจิรา แก้วประเสริฐ, ณฐปภัสร์ สิงห์พิทักษ์, วีรภัทร ปัญจแก้ว, กชพร นิธิจิรภัทร, ลัลญาดา ชูเชิด, ฌานิทธี ทองมินทร์, กัญญน์วรา สมรัตน์, กนกพิชญ์ บุญใบ, สวรินทร์ ปิงยศ, จิรัชพร ศรีษาคำ`,
                 "Alto": `สิทธิ์วีย์ สุภัสสรชยุต, วรวลัญช์ กิตติอำไพสกุล, ปภาวรินทร์ สิงหัษฐิต, พรวนัช ชินเจริญทรัพย์, ณัฐฐชาช์ ใหญ่รัมย์, ณธิมณฐ์ บุลวัชร์ธนนนท์, ธนิวรรณ ภิรมย์, วรสิทธ์ ดอกไม้ทอง, สุธาสินี เรืองรอง, ณัฐกิตติ์ ภัทรเกียรติพงษ์, พิมพ์พนิต พรรณจิตต์, ธนพัต ตันชัย, สริตาพร สุภัสสรชยุต, เนติญา ชัยงามจิตร, จิรฐา นวลสุมา`,
@@ -355,7 +362,7 @@ The choir plays an important role in supporting various school events and has co
 
     function createCards() {
         const grid = document.getElementById('choirGrid');
-        grid.innerHTML = ''; // Clear existing to prevent duplicates if called again
+        grid.innerHTML = ''; 
         choirs.forEach(choir => {
             const card = document.createElement('div');
             card.className = 'choir-card';
@@ -374,6 +381,7 @@ The choir plays an important role in supporting various school events and has co
         const data = choirs.find(c => c.id === id);
         if (!data) return;
 
+        // ดึงรายชื่อนักร้อง
         let membersHtml = '';
         for (const [part, list] of Object.entries(data.members)) {
             membersHtml += `
@@ -384,16 +392,21 @@ The choir plays an important role in supporting various school events and has co
             `;
         }
 
+        // จัดการระบบตำแหน่งพิเศษ (รองรับหลายตำแหน่งด้วย Array)
         let extraHtml = '';
         if (data.extraInfo) {
-            extraHtml = `
-                <div>
-                    <span class="member-part-title">${data.extraInfo.label}</span>
-                    ${formatNames(data.extraInfo.content)}
-                </div>
-            `;
+            const extras = Array.isArray(data.extraInfo) ? data.extraInfo : [data.extraInfo];
+            extras.forEach(info => {
+                extraHtml += `
+                    <div>
+                        <span class="member-part-title">${info.label}</span>
+                        <div style="margin-bottom:20px;">${formatNames(info.content)}</div>
+                    </div>
+                `;
+            });
         }
 
+        // สร้าง HTML รวมของ Modal
         const html = `
             <div class="modal-banner" style="background-image: url('${data.img}')"></div>
             <div class="modal-body">
@@ -407,12 +420,13 @@ The choir plays an important role in supporting various school events and has co
                 <div class="member-grid">
                     <div>
                         <span class="member-part-title">Conductor</span>
-                        ${formatNames(data.conductor)}
+                        <div style="margin-bottom:20px;">${formatNames(data.conductor)}</div>
                     </div>
+                    ${data.pianist && data.pianist !== '-' ? `
                     <div>
                         <span class="member-part-title">Pianist</span>
-                        ${formatNames(data.pianist)}
-                    </div>
+                        <div style="margin-bottom:20px;">${formatNames(data.pianist)}</div>
+                    </div>` : ''}
                     ${extraHtml}
                 </div>
 
@@ -420,41 +434,28 @@ The choir plays an important role in supporting various school events and has co
                 <div class="member-grid">
                     ${membersHtml}
                 </div>
-
-                <div class="section-title">Repertoire</div>
-                <div class="repertoire-box">
-                    ${data.repertoire.map(song => `
-                        <div style="margin-bottom:15px;">
-                            <span class="song-title">${song.title}</span>
-                            <span class="song-meta">${song.meta}</span>
-                        </div>
-                    `).join('')}
-                </div>
-                <div style="height:30px;"></div>
             </div>
         `;
-        
+
         document.getElementById('modalData').innerHTML = html;
         document.getElementById('choirModal').style.display = 'block';
-        document.body.style.overflow = 'hidden'; // ป้องกันการเลื่อนหน้าเว็บพื้นหลังตอนเปิด Modal
     }
 
     function closeModal() {
         document.getElementById('choirModal').style.display = 'none';
-        document.body.style.overflow = 'auto'; // คืนค่าให้หน้าเว็บเลื่อนได้ปกติ
     }
 
     // ปิด Modal เมื่อคลิกพื้นที่ว่างข้างนอก
     window.onclick = function(event) {
         const modal = document.getElementById('choirModal');
         if (event.target == modal) {
-            closeModal();
+            modal.style.display = "none";
         }
     }
 
-    // เริ่มสร้างการ์ดเมื่อโหลดเสร็จ
-    createCards();
-
+    // โหลดหน้าจอเริ่มต้น
+    window.onload = createCards;
 </script>
+
 </body>
 </html>
