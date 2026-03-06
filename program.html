@@ -20,6 +20,35 @@
             margin: 0 auto; 
             padding: 60px 25px;
             background-color: #ffffff;
+            animation: fadeIn 0.8s ease-out; /* เพิ่มแอนิเมชันตอนเปิดหน้าเว็บ */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ปุ่มย้อนกลับ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #888;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #D4AF37;
+        }
+
+        .back-btn::before {
+            content: '←';
+            margin-right: 8px;
+            font-size: 1.2rem;
         }
 
         /* Header Section */
@@ -168,6 +197,8 @@
 <body>
 
 <div class="program-container">
+    <a href="index.html" class="back-btn">BACK TO PARTICIPATING CHOIRS</a>
+
     <header class="festival-header">
         <div class="venue-name">SURYADHEP MUSIC SALA</div>
         <h1>Rangsit Choral Festival Concert 2026</h1>
