@@ -1,105 +1,198 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Rangsit Choral Festival</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f7f6;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 2px solid #2c3e50;
-        }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        .content-box {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            margin-top: 30px;
-        }
-        h2 {
-            color: #2980b9;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        h2:first-of-type {
-            margin-top: 0; /* ไม่ให้หัวข้อแรกมีช่องว่างด้านบนมากเกินไป */
-        }
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        .lang-section {
-            margin-bottom: 40px;
-        }
-        /* สไตล์สำหรับปุ่ม Back to Home */
-        .btn-back {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #2980b9;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .btn-back:hover {
-            background-color: #1a5276;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #95a5a6;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Rangsit Choral Festival 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Montserrat:wght@400;700&display=swap');
+  
+  body { 
+    margin: 0; 
+    font-family: 'Kanit', sans-serif; 
+    background-color: #000; 
+    color: #fff;
+    /* เพิ่มพื้นหลังแบบมีมิติเล็กน้อยให้เข้ากับธีม */
+    background-image: radial-gradient(circle at top center, rgba(30,30,30,1) 0%, rgba(0,0,0,1) 100%);
+    min-height: 100vh;
+  }
+  
+  /* Navbar Style (เหมือนหน้า index.html) */
+  .navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  }
+  
+  .nav-brand a { text-decoration: none; display: block; }
+  .nav-logo { height: 60px; width: auto; display: block; transition: transform 0.3s ease; }
+  .nav-logo:hover { transform: scale(1.05); }
+
+  .nav-links { display: flex; gap: 30px; }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+  }
+  .nav-links a:hover { color: #D4AF37; }
+
+  /* Content Wrapper */
+  .content-wrapper {
+    padding: 130px 20px 60px 20px; /* เว้นที่ด้านบนให้ Navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* About Box (สไตล์กระจกใสขุ่น แบบเดียวกับ Schedule box) */
+  .about-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 900px;
+    width: 95%;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    color: #D4AF37; /* สีทอง */
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  h2:first-of-type { margin-top: 0; }
+
+  p {
+    font-weight: 300;
+    line-height: 1.8;
+    opacity: 0.85;
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+
+  /* ปุ่ม Back to Home (สไตล์เดียวกับปุ่มหน้าหลัก) */
+  .btn-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .btn-primary { 
+    background: #D4AF37; 
+    color: #000; 
+    border: 1px solid #D4AF37; 
+    padding: 12px 30px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    border-radius: 4px; 
+    transition: 0.3s all ease;
+    font-size: 0.85rem; 
+    letter-spacing: 1px;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #f1c40f;
+    border-color: #f1c40f;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.85rem;
+    opacity: 0.5;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Responsive สำหรับหน้าจอมือถือ */
+  @media (max-width: 768px) {
+    .navbar { flex-direction: column; padding: 15px 20px; background: rgba(0,0,0,0.9); position: relative; }
+    .nav-logo { height: 50px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
+    .nav-links a { font-size: 0.75rem; }
+    .content-wrapper { padding-top: 40px; }
+    .about-box { padding: 30px 20px; }
+    h1 { font-size: 2rem; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Rangsit Choral Festival</h1>
-    </header>
+<nav class="navbar">
+  <div class="nav-brand">
+    <a href="index.html">
+      <img src="https://drive.google.com/thumbnail?id=1ui5b3j5F2GKIMNv3Ig0kpzhW2NaK5Ihq&sz=w1000" alt="Rangsit Choral Festival" class="nav-logo">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="about.html" style="color: #D4AF37;">About</a> <a href="schedule.html">Festival Schedule</a>
+    <a href="choirs.html">Participant Choirs</a>
+    <a href="program.html">Concert Program</a>
+    <a href="conductor.html">Guest Conductor</a>
+  </div>
+</nav>
 
-    <main class="content-box">
-        
-        <div class="lang-section">
-            <h2>เกี่ยวกับเรา (TH)</h2>
-            <p><strong>Rangsit Choral Festival</strong> เป็นเทศกาลดนตรีขับร้องประสานเสียงที่จัดขึ้นโดยวิทยาลัยดนตรี มหาวิทยาลัยรังสิต เพื่อเปิดพื้นที่ให้นักร้องประสานเสียงจากโรงเรียนและสถาบันการศึกษาต่าง ๆ ได้มาพบปะ เรียนรู้ และสร้างประสบการณ์ทางดนตรีร่วมกันผ่านการอบรม การฝึกซ้อม และการแสดง</p>
-            <p>ในแต่ละปี เทศกาลรวบรวมนักร้องประสานเสียงมากกว่า 300 คน จากหลากหลายสถาบัน ทั้งระดับมัธยมศึกษาและอุดมศึกษา พร้อมทั้งเชิญ วิทยากรและศิลปินรับเชิญผู้เชี่ยวชาญด้านการขับร้องประสานเสียงจากทั้งประเทศไทยและนานาชาติ มาร่วมแบ่งปันความรู้และประสบการณ์แก่ผู้เข้าร่วม</p>
-            <p>กิจกรรมภายในเทศกาลประกอบด้วยการอบรมด้านการขับร้องประสานเสียง การอบรมด้านการอำนวยเพลงประสานเสียง และการแสดงคอนเสิร์ต โดยผู้เข้าร่วมจะได้ร่วมฝึกซ้อมและนำเสนอผลงานในรูปแบบ Mass Choir ซึ่งรวบรวมนักร้องประสานเสียงจากหลากหลายสถาบันขึ้นแสดงร่วมกัน</p>
-            <p>Rangsit Choral Festival จัดขึ้นเป็น เทศกาลประจำปี โดยมีเป้าหมายเพื่อสนับสนุนการพัฒนานักร้องประสานเสียงรุ่นใหม่ และส่งเสริมวัฒนธรรมการขับร้องประสานเสียงให้เติบโตในสังคมไทย</p>
-        </div>
+<div class="content-wrapper">
+  
+  <div class="about-box">
+    <h1>ABOUT US</h1>
+    
+    <h2>เกี่ยวกับโครงการ (TH)</h2>
+    <p><strong>Rangsit Choral Festival</strong> เป็นเทศกาลดนตรีขับร้องประสานเสียงที่จัดขึ้นโดยวิทยาลัยดนตรี มหาวิทยาลัยรังสิต เพื่อเปิดพื้นที่ให้นักร้องประสานเสียงจากโรงเรียนและสถาบันการศึกษาต่าง ๆ ได้มาพบปะ เรียนรู้ และสร้างประสบการณ์ทางดนตรีร่วมกันผ่านการอบรม การฝึกซ้อม และการแสดง</p>
+    <p>ในแต่ละปี เทศกาลรวบรวมนักร้องประสานเสียงมากกว่า 300 คน จากหลากหลายสถาบัน ทั้งระดับมัธยมศึกษาและอุดมศึกษา พร้อมทั้งเชิญวิทยากรและศิลปินรับเชิญผู้เชี่ยวชาญด้านการขับร้องประสานเสียงจากทั้งประเทศไทยและนานาชาติ มาร่วมแบ่งปันความรู้และประสบการณ์แก่ผู้เข้าร่วม</p>
+    <p>กิจกรรมภายในเทศกาลประกอบด้วยการอบรมด้านการขับร้องประสานเสียง การอบรมด้านการอำนวยเพลงประสานเสียง และการแสดงคอนเสิร์ต โดยผู้เข้าร่วมจะได้ร่วมฝึกซ้อมและนำเสนอผลงานในรูปแบบ Mass Choir ซึ่งรวบรวมนักร้องประสานเสียงจากหลากหลายสถาบันขึ้นแสดงร่วมกัน</p>
+    <p>Rangsit Choral Festival จัดขึ้นเป็นเทศกาลประจำปี โดยมีเป้าหมายเพื่อสนับสนุนการพัฒนานักร้องประสานเสียงรุ่นใหม่ และส่งเสริมวัฒนธรรมการขับร้องประสานเสียงให้เติบโตในสังคมไทย</p>
 
-        <div class="lang-section">
-            <h2>About Us (EN)</h2>
-            <p>The <strong>Rangsit Choral Festival</strong> is an annual choral festival organized by the Conservatory of Music, Rangsit University. The festival provides a platform for singers from schools and educational institutions to come together, learn, and share musical experiences through workshops, rehearsals, and performances.</p>
-            <p>Each year, the festival brings together more than 300 singers from a wide range of institutions, including both secondary schools and universities. Choral experts from Thailand and abroad are invited to share their knowledge and experience with participants.</p>
-            <p>Festival activities include choral workshops, a choral conducting masterclass, and a festival concert. Throughout the festival, participants rehearse together and present the results of their collaboration in a Mass Choir performance, bringing singers from different institutions together on one stage.</p>
-            <p>The Rangsit Choral Festival aims to support the development of young singers while fostering collaboration and promoting the growth of choral culture in Thailand.</p>
-        </div>
+    <h2>About the Festival (EN)</h2>
+    <p>The <strong>Rangsit Choral Festival</strong> is an annual choral festival organized by the Conservatory of Music, Rangsit University. The festival provides a platform for singers from schools and educational institutions to come together, learn, and share musical experiences through workshops, rehearsals, and performances.</p>
+    <p>Each year, the festival brings together more than 300 singers from a wide range of institutions, including both secondary schools and universities. Choral experts from Thailand and abroad are invited to share their knowledge and experience with participants.</p>
+    <p>Festival activities include choral workshops, a choral conducting masterclass, and a festival concert. Throughout the festival, participants rehearse together and present the results of their collaboration in a Mass Choir performance, bringing singers from different institutions together on one stage.</p>
+    <p>The Rangsit Choral Festival aims to support the development of young singers while fostering collaboration and promoting the growth of choral culture in Thailand.</p>
 
-        <a href="index.html" class="btn-back">⬅ Back to Home</a>
-        
-    </main>
+    <div class="btn-container">
+      <a href="index.html" class="btn-primary">⬅ Back to Home</a>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Rangsit Choral Festival. All rights reserved.</p>
-    </footer>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Rangsit Choral Festival. All rights reserved.</p>
+  </footer>
+
+</div>
 
 </body>
 </html>
