@@ -75,7 +75,7 @@
     padding: 30px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    max-width: 850px; /* ขยายความกว้างนิดนึงเพื่อให้พอดีกับข้อความปุ่มที่เพิ่มมา */
+    max-width: 850px; 
     width: 95%;
     display: flex;
     align-items: center;
@@ -98,7 +98,7 @@
   /* Schedule Item Clickable */
   .schedule-item {
     display: flex;
-    align-items: center; /* เปลี่ยนเป็น center ให้ปุ่มตรงกลางบรรทัด */
+    align-items: center; 
     border-bottom: 1px solid rgba(255,255,255,0.08);
     padding: 10px 15px;
     text-decoration: none; 
@@ -117,8 +117,16 @@
   .event-title { display: block; font-weight: 600; font-size: 1rem; color: #fff; }
   .event-desc { display: block; font-size: 0.8rem; opacity: 0.7; font-weight: 300; color: #fff; }
 
-  /* สไตล์ของข้อความ กดเพื่อลงทะเบียน/จองตั๋ว */
+  /* --- สไตล์ของกล่อง CTA (ภาษาอังกฤษ + ภาษาไทย) --- */
   .action-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* ให้ข้อความชิดขวาในวันที่ 7, 9 */
+    justify-content: center;
+    transition: 0.3s all ease;
+  }
+
+  .cta-en {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
@@ -129,7 +137,20 @@
     white-space: nowrap;
     transition: 0.3s all ease;
   }
-  .schedule-item:hover .action-cta { color: #D4AF37; opacity: 1; }
+
+  .cta-th {
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: #fff;
+    opacity: 0.4;
+    margin-top: 2px;
+    white-space: nowrap;
+    transition: 0.3s all ease;
+  }
+
+  .schedule-item:hover .cta-en,
+  .schedule-item:hover .cta-th { color: #D4AF37; opacity: 1; }
 
   /* ไฮไลท์สำหรับวันที่ 8 (คอนเสิร์ต) */
   .highlight-concert {
@@ -142,19 +163,25 @@
   .highlight-concert .event-title { font-size: 1.3rem; color: #D4AF37; }
   .concert-name-sub { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #fff; display: block; margin-top: 1px; font-weight: 700; letter-spacing: 1px; }
 
-  /* ปุ่ม Book Ticket ให้โดดเด่นในวันที่ 8 */
+  /* ปรับแต่งปุ่ม Book Ticket ให้โดดเด่นในวันที่ 8 */
   .highlight-concert .action-cta {
     background: #D4AF37;
-    color: #000;
     padding: 8px 15px;
     border-radius: 4px;
-    opacity: 1;
+    align-items: center; /* ให้ข้อความในปุ่มนี้อยู่กึ่งกลาง */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
+  
+  .highlight-concert .cta-en { color: #000; opacity: 1; }
+  .highlight-concert .cta-th { color: #000; opacity: 0.8; font-weight: 400; }
+
   .highlight-concert:hover .action-cta {
     background: #f1c40f;
     transform: scale(1.05);
   }
+  
+  .highlight-concert:hover .cta-en,
+  .highlight-concert:hover .cta-th { color: #000; }
 
   /* Buttons */
   .btn-group { display: flex; justify-content: center; margin-top: 20px; }
@@ -179,10 +206,13 @@
     .schedule-box { flex-direction: column; text-align: center; padding: 25px 15px; }
     .conductor-mini-profile { flex: none; margin-bottom: 10px; }
     
-    /* จัดการให้บนมือถือ ข้อความปุ่มตกลงมาอยู่ด้านล่างแทนที่จำเบียดกัน */
     .schedule-item { flex-direction: column; align-items: center; gap: 10px; text-align: center; }
     .date-col { flex: none; margin-bottom: 0; }
     .event-col { padding-left: 0; padding-right: 0; }
+    
+    /* จัดข้อความ CTA ให้อยู่ตรงกลางเวลากลายเป็นแนวตั้งบนมือถือ */
+    .action-cta { align-items: center; margin-top: 5px; }
+    
     .highlight-concert { margin-left: 0; border-left: none; border-top: 4px solid #D4AF37; }
     
     h1 { font-size: 2.2rem; }
@@ -233,7 +263,10 @@
           <span class="event-title">Choral Workshop</span>
           <span class="event-desc">การอบรมขับร้องประสานเสียง</span>
         </div>
-        <div class="action-cta">Register Observer ➔</div>
+        <div class="action-cta">
+          <span class="cta-en">Observer Registration ➔</span>
+          <span class="cta-th">ลงทะเบียนผู้สังเกตการณ์</span>
+        </div>
       </a>
       
       <a href="#" class="schedule-item highlight-concert">
@@ -242,7 +275,10 @@
           <span class="event-title">Festival Concert: <span class="concert-name-sub">"ALL OF US"</span></span>
           <span class="event-desc">คอนเสิร์ตเทศกาล (7 PM)</span>
         </div>
-        <div class="action-cta">Book Ticket Here ➔</div>
+        <div class="action-cta">
+          <span class="cta-en">Book Ticket Here ➔</span>
+          <span class="cta-th">สำรองที่นั่งคอนเสิร์ต</span>
+        </div>
       </a>
       
       <a href="https://forms.gle/AFVvLkyUD4veQxZp7" target="_blank" class="schedule-item">
@@ -251,7 +287,10 @@
           <span class="event-title">Conducting Masterclass</span>
           <span class="event-desc">การอบรมการอำนวยเพลงประสานเสียง</span>
         </div>
-        <div class="action-cta">Register Observer ➔</div>
+        <div class="action-cta">
+          <span class="cta-en">Observer Registration ➔</span>
+          <span class="cta-th">ลงทะเบียนผู้สังเกตการณ์</span>
+        </div>
       </a>
       
       <div class="btn-group">
