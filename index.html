@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,27 +23,11 @@
     background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
   }
   
-  .nav-brand a {
-    text-decoration: none;
-    display: block;
-  }
+  .nav-brand a { text-decoration: none; display: block; }
+  .nav-logo { height: 60px; width: auto; display: block; transition: transform 0.3s ease; }
+  .nav-logo:hover { transform: scale(1.05); }
 
-  /* Style สำหรับ Logo */
-  .nav-logo {
-    height: 60px; /* ขนาดโลโก้บนหน้าจอปกติ */
-    width: auto;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-
-  .nav-logo:hover {
-    transform: scale(1.05); /* ลูกเล่นขยายโลโก้เล็กน้อยเมื่อเอาเมาส์ชี้ */
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 30px;
-  }
+  .nav-links { display: flex; gap: 30px; }
   .nav-links a {
     color: #fff;
     text-decoration: none;
@@ -54,9 +38,7 @@
     letter-spacing: 1px;
     transition: color 0.3s ease;
   }
-  .nav-links a:hover {
-    color: #D4AF37;
-  }
+  .nav-links a:hover { color: #D4AF37; }
 
   .hero-container {
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
@@ -82,14 +64,7 @@
   .info-bar { display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 10px; }
   .main-date { font-size: 1.5rem; color: #fff; font-weight: 300; letter-spacing: 3px; }
   .free-badge { 
-    background: #D4AF37; 
-    color: #000; 
-    padding: 4px 12px; 
-    font-size: 0.8rem; 
-    font-weight: 700; 
-    border-radius: 4px; 
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    background: #D4AF37; color: #000; padding: 4px 12px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase;
   }
 
   /* Schedule Box */
@@ -100,7 +75,7 @@
     padding: 30px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    max-width: 800px;
+    max-width: 850px; /* ขยายความกว้างนิดนึงเพื่อให้พอดีกับข้อความปุ่มที่เพิ่มมา */
     width: 95%;
     display: flex;
     align-items: center;
@@ -109,37 +84,23 @@
     margin: 20px 0;
   }
 
-  /* Conductor Profile Link Style */
-  .conductor-link {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s all ease;
-    display: block;
-  }
-  .conductor-link:hover {
-    transform: scale(1.05);
-  }
+  .conductor-link { text-decoration: none; color: inherit; transition: 0.3s all ease; display: block; }
+  .conductor-link:hover { transform: scale(1.05); }
 
   .conductor-mini-profile { flex: 0 0 140px; text-align: center; }
   .conductor-mini-profile img {
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    border: 2px solid #D4AF37;
-    object-fit: cover;
-    margin-bottom: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    width: 120px; height: 120px; border-radius: 50%; border: 2px solid #D4AF37; object-fit: cover; margin-bottom: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   }
   .conductor-name { font-size: 0.85rem; font-weight: 600; color: #D4AF37; }
 
-  .schedule-list { flex: 1; }
+  .schedule-list { flex: 1; display: flex; flex-direction: column; gap: 8px; }
 
   /* Schedule Item Clickable */
   .schedule-item {
     display: flex;
-    align-items: baseline;
-    margin-bottom: 12px;
+    align-items: center; /* เปลี่ยนเป็น center ให้ปุ่มตรงกลางบรรทัด */
     border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding: 8px 10px;
+    padding: 10px 15px;
     text-decoration: none; 
     color: inherit; 
     transition: 0.3s all ease;
@@ -152,85 +113,80 @@
   }
 
   .date-col { flex: 0 0 75px; font-weight: 600; color: #D4AF37; font-size: 1rem; }
-  .event-col { flex: 1; padding-left: 10px; }
+  .event-col { flex: 1; padding-left: 10px; padding-right: 15px; }
   .event-title { display: block; font-weight: 600; font-size: 1rem; color: #fff; }
   .event-desc { display: block; font-size: 0.8rem; opacity: 0.7; font-weight: 300; color: #fff; }
 
+  /* สไตล์ของข้อความ กดเพื่อลงทะเบียน/จองตั๋ว */
+  .action-cta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: 0.3s all ease;
+  }
+  .schedule-item:hover .action-cta { color: #D4AF37; opacity: 1; }
+
+  /* ไฮไลท์สำหรับวันที่ 8 (คอนเสิร์ต) */
   .highlight-concert {
     background: rgba(212, 175, 55, 0.08);
     border-left: 4px solid #D4AF37;
-    padding: 12px 10px 12px 15px;
     margin-left: -5px;
-    border-radius: 0 8px 8px 0;
   }
   
-  .highlight-concert:hover {
-    background: rgba(212, 175, 55, 0.15) !important;
-  }
-
+  .highlight-concert:hover { background: rgba(212, 175, 55, 0.15) !important; }
   .highlight-concert .event-title { font-size: 1.3rem; color: #D4AF37; }
   .concert-name-sub { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #fff; display: block; margin-top: 1px; font-weight: 700; letter-spacing: 1px; }
 
-  /* Buttons */
-  .btn-group { display: flex; gap: 12px; margin-top: 15px; }
-  .btn { 
-    padding: 10px 22px; text-decoration: none; font-weight: 600; text-transform: uppercase; 
-    border-radius: 4px; transition: 0.3s all ease;
-    font-size: 0.75rem; letter-spacing: 1px;
-    text-align: center;
-    display: inline-block;
+  /* ปุ่ม Book Ticket ให้โดดเด่นในวันที่ 8 */
+  .highlight-concert .action-cta {
+    background: #D4AF37;
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 4px;
+    opacity: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
-
-  .btn-primary { background: #D4AF37; color: #000; border: 1px solid #D4AF37; } 
-  .btn-secondary { border: 1px solid rgba(255, 255, 255, 0.5); color: #fff; background: rgba(255,255,255,0.05); } 
-
-  .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .btn-primary:hover {
+  .highlight-concert:hover .action-cta {
     background: #f1c40f;
-    border-color: #f1c40f;
+    transform: scale(1.05);
   }
 
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #fff;
+  /* Buttons */
+  .btn-group { display: flex; justify-content: center; margin-top: 20px; }
+  .btn { 
+    padding: 10px 25px; text-decoration: none; font-weight: 600; text-transform: uppercase; 
+    border-radius: 4px; transition: 0.3s all ease; font-size: 0.8rem; letter-spacing: 1px; text-align: center; display: inline-block;
   }
+  .btn-secondary { border: 1px solid rgba(255, 255, 255, 0.5); color: #fff; background: rgba(255,255,255,0.05); } 
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.15); border-color: #fff; transform: translateY(-3px); }
 
   /* Footer Slogan */
   .footer-text { margin-top: 20px; }
-  .slogan-footer {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 4px;
-    color: #fff;
-    opacity: 0.8;
-  }
+  .slogan-footer { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 400; letter-spacing: 4px; color: #fff; opacity: 0.8; }
 
   /* Responsive สำหรับหน้าจอมือถือ */
   @media (max-width: 768px) {
     .navbar { flex-direction: column; padding: 15px 20px; background: rgba(0,0,0,0.8); }
-    
-    /* ปรับขนาดโลโก้ให้เล็กลงเมื่ออยู่บนมือถือ */
     .nav-logo { height: 50px; }
-
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
     .nav-links a { font-size: 0.75rem; }
     
-    .schedule-box { flex-direction: column; text-align: center; padding: 25px; }
+    .schedule-box { flex-direction: column; text-align: center; padding: 25px 15px; }
     .conductor-mini-profile { flex: none; margin-bottom: 10px; }
-    .schedule-item { flex-direction: column; align-items: center; }
-    .schedule-item:hover { transform: translateY(-3px); }
-    .date-col { flex: none; margin-bottom: 3px; }
-    .event-col { padding-left: 0; }
+    
+    /* จัดการให้บนมือถือ ข้อความปุ่มตกลงมาอยู่ด้านล่างแทนที่จำเบียดกัน */
+    .schedule-item { flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .date-col { flex: none; margin-bottom: 0; }
+    .event-col { padding-left: 0; padding-right: 0; }
+    .highlight-concert { margin-left: 0; border-left: none; border-top: 4px solid #D4AF37; }
+    
     h1 { font-size: 2.2rem; }
     .info-bar { flex-direction: column; gap: 5px; }
-    .btn-group { flex-direction: column; width: 100%; }
-    .btn { width: 100%; box-sizing: border-box; }
-    .btn:hover { transform: translateY(-3px); }
   }
 </style>
 </head>
@@ -271,33 +227,35 @@
     </a>
 
     <div class="schedule-list">
-      <a href="schedule.html" class="schedule-item">
+      <a href="https://forms.gle/AFVvLkyUD4veQxZp7" target="_blank" class="schedule-item">
         <div class="date-col">7 APR</div>
         <div class="event-col">
           <span class="event-title">Choral Workshop</span>
           <span class="event-desc">การอบรมขับร้องประสานเสียง</span>
         </div>
+        <div class="action-cta">Register Observer ➔</div>
       </a>
       
-      <a href="schedule.html" class="schedule-item highlight-concert">
+      <a href="#" class="schedule-item highlight-concert">
         <div class="date-col">8 APR</div>
         <div class="event-col">
           <span class="event-title">Festival Concert: <span class="concert-name-sub">"ALL OF US"</span></span>
           <span class="event-desc">คอนเสิร์ตเทศกาล (7 PM)</span>
         </div>
+        <div class="action-cta">Book Ticket Here ➔</div>
       </a>
       
-      <a href="schedule.html" class="schedule-item">
+      <a href="https://forms.gle/AFVvLkyUD4veQxZp7" target="_blank" class="schedule-item">
         <div class="date-col">9 APR</div>
         <div class="event-col">
           <span class="event-title">Conducting Masterclass</span>
           <span class="event-desc">การอบรมการอำนวยเพลงประสานเสียง</span>
         </div>
+        <div class="action-cta">Register Observer ➔</div>
       </a>
       
       <div class="btn-group">
-        <a href="#" class="btn btn-primary">Festival Concert Ticket</a>
-        <a href="#" class="btn btn-secondary">Observer Registration</a>
+        <a href="schedule.html" class="btn btn-secondary">Go to Festival Schedule</a>
       </div>
     </div>
   </div>
