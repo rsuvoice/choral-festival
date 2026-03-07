@@ -10,12 +10,11 @@
   body { 
     margin: 0; 
     font-family: 'Kanit', sans-serif; 
-    background-color: #F9F9F9; /* พื้นหลังสีสว่าง */
-    color: #333; /* เปลี่ยนสีตัวอักษรเป็นสีเข้มให้อ่านง่าย */
+    background-color: #F9F9F9;
+    color: #333;
     min-height: 100vh;
   }
   
-  /* Navbar Style (ใช้พื้นหลังสีดำเพื่อให้โลโก้และเมนูสีขาวมองเห็นชัดเจน) */
   .navbar {
     background-color: #000; 
     width: 100%;
@@ -44,7 +43,6 @@
   }
   .nav-links a:hover { color: #D4AF37; }
 
-  /* Content Wrapper */
   .content-wrapper {
     padding: 60px 20px; 
     display: flex;
@@ -52,7 +50,6 @@
     align-items: center;
   }
 
-  /* About Box (สไตล์กล่องสีขาว สว่าง คลีน) */
   .about-box {
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -69,13 +66,30 @@
     font-size: 2.5rem;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-weight: 700;
     letter-spacing: 2px;
   }
 
+  .about-image-container {
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 450px; 
+  }
+
   h2 {
-    color: #D4AF37; /* สีทอง */
+    color: #D4AF37;
     font-size: 1.4rem;
     font-weight: 600;
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
@@ -89,13 +103,37 @@
   p {
     font-weight: 300;
     line-height: 1.8;
-    color: #555; /* ตัวอักษรสีเทาเข้ม */
+    color: #555;
     text-align: justify;
     margin-bottom: 15px;
     font-size: 1rem;
   }
 
-  /* ปุ่ม Back to Home (สไตล์ปุ่มสีทองเหมือนหน้าอื่น) */
+  /* --- เพิ่ม CSS สำหรับการฝังวิดีโอ YouTube ให้ย่อขยายตามหน้าจอ --- */
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* อัตราส่วน 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 40px; /* เว้นระยะห่างจากข้อความด้านบน */
+  }
+
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  /* ---------------------------------------------------- */
+
   .btn-container {
     text-align: center;
     margin-top: 50px;
@@ -132,14 +170,15 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  /* Responsive สำหรับหน้าจอมือถือ */
   @media (max-width: 768px) {
     .navbar { flex-direction: column; padding: 15px 20px; }
     .nav-logo { height: 50px; }
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
     .nav-links a { font-size: 0.75rem; }
     .about-box { padding: 30px 20px; }
-    h1 { font-size: 2rem; }
+    h1 { font-size: 2rem; margin-bottom: 20px; }
+    .about-image-container { margin-bottom: 30px; }
+    .about-image { max-height: 300px; }
   }
 </style>
 </head>
@@ -164,9 +203,13 @@
   
   <div class="about-box">
     <h1>ABOUT US</h1>
+
+    <div class="about-image-container">
+      <img src="https://drive.google.com/thumbnail?id=17YqUXIbOpH47MUmKuD16rmy34yS2FLJv&sz=w1000" alt="Rangsit Choral Festival Mass Choir" class="about-image">
+    </div>
     
     <h2>เกี่ยวกับโครงการ (TH)</h2>
-    <p><strong>Rangsit Choral Festival</strong> เป็นเทศกาลขับร้องประสานเสียงที่จัดขึ้นโดยวิทยาลัยดนตรี มหาวิทยาลัยรังสิต เพื่อเปิดพื้นที่ให้นักร้องประสานเสียงจากโรงเรียนและสถาบันการศึกษาต่าง ๆ ได้มาพบปะ เรียนรู้ และสร้างประสบการณ์ทางดนตรีร่วมกันผ่านการอบรม การฝึกซ้อม และการแสดง</p>
+    <p><strong>Rangsit Choral Festival</strong> เป็นเทศกาลดนตรีขับร้องประสานเสียงที่จัดขึ้นโดยวิทยาลัยดนตรี มหาวิทยาลัยรังสิต เพื่อเปิดพื้นที่ให้นักร้องประสานเสียงจากโรงเรียนและสถาบันการศึกษาต่าง ๆ ได้มาพบปะ เรียนรู้ และสร้างประสบการณ์ทางดนตรีร่วมกันผ่านการอบรม การฝึกซ้อม และการแสดง</p>
     <p>ในแต่ละปี เทศกาลรวบรวมนักร้องประสานเสียงมากกว่า 300 คน จากหลากหลายสถาบัน ทั้งระดับมัธยมศึกษาและอุดมศึกษา พร้อมทั้งเชิญวิทยากรและศิลปินรับเชิญผู้เชี่ยวชาญด้านการขับร้องประสานเสียงจากทั้งประเทศไทยและนานาชาติ มาร่วมแบ่งปันความรู้และประสบการณ์แก่ผู้เข้าร่วม</p>
     <p>กิจกรรมภายในเทศกาลประกอบด้วยการอบรมด้านการขับร้องประสานเสียง การอบรมด้านการอำนวยเพลงประสานเสียง และการแสดงคอนเสิร์ต โดยผู้เข้าร่วมจะได้ร่วมฝึกซ้อมและนำเสนอผลงานในรูปแบบ Mass Choir ซึ่งรวบรวมนักร้องประสานเสียงจากหลากหลายสถาบันขึ้นแสดงร่วมกัน</p>
     <p>Rangsit Choral Festival จัดขึ้นเป็นเทศกาลประจำปี โดยมีเป้าหมายเพื่อสนับสนุนการพัฒนานักร้องประสานเสียงรุ่นใหม่ และส่งเสริมวัฒนธรรมการขับร้องประสานเสียงให้เติบโตในสังคมไทย</p>
@@ -177,6 +220,9 @@
     <p>Festival activities include choral workshops, a choral conducting masterclass, and a festival concert. Throughout the festival, participants rehearse together and present the results of their collaboration in a Mass Choir performance, bringing singers from different institutions together on one stage.</p>
     <p>The Rangsit Choral Festival aims to support the development of young singers while fostering collaboration and promoting the growth of choral culture in Thailand.</p>
 
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/mM5s9v4JSro" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
     <div class="btn-container">
       <a href="index.html" class="btn-primary">Back to Home</a>
     </div>
