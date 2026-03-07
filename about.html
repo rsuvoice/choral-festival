@@ -10,17 +10,14 @@
   body { 
     margin: 0; 
     font-family: 'Kanit', sans-serif; 
-    background-color: #000; 
-    color: #fff;
-    /* เพิ่มพื้นหลังแบบมีมิติเล็กน้อยให้เข้ากับธีม */
-    background-image: radial-gradient(circle at top center, rgba(30,30,30,1) 0%, rgba(0,0,0,1) 100%);
+    background-color: #F9F9F9; /* พื้นหลังสีสว่าง */
+    color: #333; /* เปลี่ยนสีตัวอักษรเป็นสีเข้มให้อ่านง่าย */
     min-height: 100vh;
   }
   
-  /* Navbar Style (เหมือนหน้า index.html) */
+  /* Navbar Style (ใช้พื้นหลังสีดำเพื่อให้โลโก้และเมนูสีขาวมองเห็นชัดเจน) */
   .navbar {
-    position: absolute;
-    top: 0;
+    background-color: #000; 
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -28,7 +25,6 @@
     padding: 20px 50px;
     box-sizing: border-box;
     z-index: 100;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
   }
   
   .nav-brand a { text-decoration: none; display: block; }
@@ -50,20 +46,18 @@
 
   /* Content Wrapper */
   .content-wrapper {
-    padding: 130px 20px 60px 20px; /* เว้นที่ด้านบนให้ Navbar */
+    padding: 60px 20px; 
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  /* About Box (สไตล์กระจกใสขุ่น แบบเดียวกับ Schedule box) */
+  /* About Box (สไตล์กล่องสีขาว สว่าง คลีน) */
   .about-box {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     padding: 50px;
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
     max-width: 900px;
     width: 95%;
     box-sizing: border-box;
@@ -71,7 +65,7 @@
 
   h1 {
     font-family: 'Montserrat', sans-serif;
-    color: #fff;
+    color: #000;
     font-size: 2.5rem;
     text-align: center;
     margin-top: 0;
@@ -95,13 +89,13 @@
   p {
     font-weight: 300;
     line-height: 1.8;
-    opacity: 0.85;
+    color: #555; /* ตัวอักษรสีเทาเข้ม */
     text-align: justify;
     margin-bottom: 15px;
     font-size: 1rem;
   }
 
-  /* ปุ่ม Back to Home (สไตล์เดียวกับปุ่มหน้าหลัก) */
+  /* ปุ่ม Back to Home (สไตล์ปุ่มสีทองเหมือนหน้าอื่น) */
   .btn-container {
     text-align: center;
     margin-top: 50px;
@@ -113,6 +107,7 @@
     border: 1px solid #D4AF37; 
     padding: 12px 30px; 
     text-decoration: none; 
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600; 
     text-transform: uppercase; 
     border-radius: 4px; 
@@ -126,24 +121,23 @@
     background: #f1c40f;
     border-color: #f1c40f;
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
   }
 
   footer {
     text-align: center;
     margin-top: 40px;
     font-size: 0.85rem;
-    opacity: 0.5;
+    color: #999;
     font-family: 'Montserrat', sans-serif;
   }
 
   /* Responsive สำหรับหน้าจอมือถือ */
   @media (max-width: 768px) {
-    .navbar { flex-direction: column; padding: 15px 20px; background: rgba(0,0,0,0.9); position: relative; }
+    .navbar { flex-direction: column; padding: 15px 20px; }
     .nav-logo { height: 50px; }
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
     .nav-links a { font-size: 0.75rem; }
-    .content-wrapper { padding-top: 40px; }
     .about-box { padding: 30px 20px; }
     h1 { font-size: 2rem; }
   }
@@ -158,7 +152,8 @@
     </a>
   </div>
   <div class="nav-links">
-    <a href="about.html" style="color: #D4AF37;">About</a> <a href="schedule.html">Festival Schedule</a>
+    <a href="about.html" style="color: #D4AF37;">About</a>
+    <a href="schedule.html">Festival Schedule</a>
     <a href="choirs.html">Participant Choirs</a>
     <a href="program.html">Concert Program</a>
     <a href="conductor.html">Guest Conductor</a>
@@ -183,7 +178,7 @@
     <p>The Rangsit Choral Festival aims to support the development of young singers while fostering collaboration and promoting the growth of choral culture in Thailand.</p>
 
     <div class="btn-container">
-      <a href="index.html" class="btn-primary">⬅ Back to Home</a>
+      <a href="index.html" class="btn-primary">Back to Home</a>
     </div>
 
   </div>
