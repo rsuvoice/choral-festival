@@ -1,9 +1,16 @@
+ผมนำข้อมูลของวง **Chulalongkorn University Concert Choir (CUCC)** ที่คุณส่งมา จัดรูปแบบและใส่เข้าไปในโค้ดให้อย่างสมบูรณ์แล้วครับ!
+
+และผมได้เขียนเงื่อนไขรองรับไว้ให้ด้วยครับว่า เนื่องจากวงนี้ไม่มีเพลงของตัวเอง (ใส่ `repertoire: []`) ระบบจะแสดงข้อความว่า **"Participating in Mass Choir Performance (เข้าร่วมแสดงในรูปแบบ Mass Choir เท่านั้น)"** ในกล่องเพลงให้อัตโนมัติครับ
+
+นี่คือ **โค้ดฉบับสมบูรณ์ (100%)** คุณสามารถคัดลอกทั้งหมดนี้ไปวางทับในไฟล์ (เช่น `choirs.html`) ของคุณได้เลยครับ:
+
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Participating Choirs - Festival Voices</title>
+    <title>Participating Choirs - Rangsit Choral Festival</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Montserrat:wght@400;700&display=swap');
         
@@ -87,7 +94,7 @@
 
         .repertoire-box { background: #fdfaf3; padding: 30px; border-radius: 10px; border-left: 5px solid #D4AF37; }
         .song-title { font-weight: 600; display: block; color: #222; }
-        .song-meta { font-size: 0.9rem; color: #777; font-style: italic; }
+        .song-meta { font-size: 0.9rem; color: #777; font-style: italic; margin-top: 3px; display: block; }
 
         @media (max-width: 768px) {
             .modal-body { padding: 25px; }
@@ -145,6 +152,40 @@
     }
 
     const choirs = [
+        // ------------------ วง CUCC (เพิ่มใหม่) ------------------
+        {
+            id: 'cucc',
+            name: 'Chulalongkorn University Concert Choir',
+            sub: 'จุฬาลงกรณ์มหาวิทยาลัย',
+            img: 'https://drive.google.com/thumbnail?id=15T5W5gE6xnksd0l7BrmpuFoMYTcxEig4&sz=w1000',
+            history: `Chulalongkorn University Concert Choir, also known as CUCC, was founded in 2007 under Chulalongkorn University Symphony Orchestra, aiming to educate students from Chulalongkorn university, as well as other schools and universities, who have a strong interest in classical choral music; and to add to the choral scene in Thailand quality performance of good choral repertoire not usually performed in the country.  The music the choir has performed ranges from the 14th century to contemporary music.
+CUCC performs regularly both a cappella music and choral-orchestral works.  It has performed Thailand premiers of major works with Chulalongkorn University Symphony Orchestra under the baton of Dr. Pawasut Piriyapongrat.  These works include Vaughan William’s Dona nobis pacem and Flos campi, Mozart’s Great Mass in C Minor, K. 427, Johann Sebastian Bach’s Magnificat, and Igor Stravinsky’s Mass, among others.  The choir has also performed in collaborations with Royal Bangkok Symphony, and Siam Philharmonic Orchestra in numeral occasions.
+Chulalongkorn University Concert Choir is under the direction of Dr. Pawasut Piriyapongrat, a faculty member of the Division of Music Education, Chulalongkorn University.`,
+            conductor: 'ดร. ภาวศุทธิ์ พิริยะพงษ์รัตน์ — DR. PAWASUT PIRIYAPONGRAT',
+            pianist: '-',
+            members: {
+                "Soprano": `1. ชัญญา โพธิ์ไพฑูรย์ — CHANYA POPAITOON
+2. ปนิตา จ๋วนเจนกิจ — PANITA JUNJENKIT
+3. น้ำพลอย กมลวิเศษกุล — NAMPLOY KAMOLWISETKUL
+4. ภัทรานิษฐ์ วิจิตรสัมพันธ์ — PATRANIT WIJITSUMPAN
+5. อรวรรณ ทรงกุล — AURAWAN SONGKUL
+6. ธัญชนก สุบรรณโรจน์ — THUNCHANOK SUBUNNAROJ`,
+                "Alto": `7. ณัฐธิตา วงศ์พรหม — NATTHITA WONGPROM
+8. สุรดา ลีรัตนกุล — SURADA LEERATANAKUL
+9. ณิชาภัทร โกมลบุตร — NICHAPHAT KOMONBUT
+10. เจนิสตา ชินรักษ์ศิริ — JENISTA CHINRAKSIRI
+11. ภัคธีมา ใจรักษ์ — PHAKTHEEMA JAIRAK
+12. ญาดาเรศ ชูชัยศรี — YADARES CHUCHAISRI`,
+                "Tenor": `13. กรวิชญ์ สิงห์เพชร — KORAVIT SINGPHET
+14. ปพนธนัย นาคชำนาญ — PAPHONTANAI NAKCHUMNAN
+15. บดินทร เพ็ญสูตร — BORDINTORN PENSUTE`,
+                "Bass": `16. ธนาธิป แสงจันทร์ — THANATHIP SAENGCHAN
+17. พงศกร กองสกูล — PONGSAKORN KONGSAKUL
+18. วรรณภพ วิบูลพัฒนะวงศ์ — WANAPOP VIBULPATANAVONG`
+            },
+            repertoire: [] // เว้นว่างไว้สำหรับแสดงข้อความเข้าร่วมเฉพาะ Mass Choir
+        },
+        // --------------------------------------------------------
         {
             id: 'rsu',
             name: 'RSU Choir',
@@ -360,7 +401,7 @@ The choir plays an important role in supporting various school events and has co
     function createCards() {
         const grid = document.getElementById('choirGrid');
         grid.innerHTML = ''; 
-        choirs.forEach(choir => {
+        choirs.forEach((choir, index) => {
             const card = document.createElement('div');
             card.className = 'choir-card';
             card.onclick = () => openModal(choir.id);
@@ -403,6 +444,32 @@ The choir plays an important role in supporting various school events and has co
             });
         }
 
+        // จัดการกรณีวงที่ไม่มี Repertoire (ร้องเฉพาะ Mass Choir)
+        let repertoireHtml = '';
+        if (data.repertoire && data.repertoire.length > 0) {
+            repertoireHtml = `
+                <div class="section-title">Repertoire</div>
+                <div class="repertoire-box">
+                    ${data.repertoire.map(song => `
+                        <div style="margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 12px;">
+                            <span class="song-title">${song.title}</span>
+                            <span class="song-meta">${song.meta}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        } else {
+            repertoireHtml = `
+                <div class="section-title">Repertoire</div>
+                <div class="repertoire-box">
+                    <div style="margin-bottom: 5px; border-bottom: none;">
+                        <span class="song-title" style="color: #D4AF37;">Participating in Mass Choir Performance</span>
+                        <span class="song-meta">เข้าร่วมแสดงในรูปแบบ Mass Choir เท่านั้น</span>
+                    </div>
+                </div>
+            `;
+        }
+
         // สร้าง HTML รวมของ Modal
         const html = `
             <div class="modal-banner" style="background-image: url('${data.img}')"></div>
@@ -427,35 +494,26 @@ The choir plays an important role in supporting various school events and has co
                     ${extraHtml}
                 </div>
 
-                <div class="section-title">Members</div>
+                <div class="section-title">Choir Members</div>
                 <div class="member-grid">
                     ${membersHtml}
                 </div>
 
-                <div class="section-title">Repertoire</div>
-                <div class="repertoire-box">
-                    ${data.repertoire ? data.repertoire.map((song, index) => `
-                        <div style="margin-bottom: ${index !== data.repertoire.length - 1 ? '15px' : '0'};">
-                            <span class="song-title">${song.title}</span>
-                            <span class="song-meta">${song.meta}</span>
-                        </div>
-                    `).join('') : ''}
-                </div>
-
+                ${repertoireHtml}
             </div>
         `;
 
-        // นำ HTML ไปใส่ใน Modal และแสดงผล
         document.getElementById('modalData').innerHTML = html;
         document.getElementById('choirModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // ป้องกันไม่ให้ scroll หน้าหลักตอนเปิด Modal
     }
 
-    // ฟังก์ชันสำหรับปิด Modal
     function closeModal() {
         document.getElementById('choirModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // คืนค่าการ scroll หน้าหลัก
     }
 
-    // ปิด Modal เมื่อคลิกพื้นที่ว่างๆ ด้านนอกกล่อง
+    // ปิด Modal เมื่อคลิกพื้นที่สีดำรอบๆ
     window.onclick = function(event) {
         const modal = document.getElementById('choirModal');
         if (event.target == modal) {
@@ -463,8 +521,11 @@ The choir plays an important role in supporting various school events and has co
         }
     }
 
-    // เรียกใช้งานตอนโหลดหน้าเว็บเพื่อสร้างหน้าต่างหลัก
-    createCards();
+    // สร้างการ์ดทันทีที่โหลดหน้าเว็บเสร็จ
+    window.onload = createCards;
 </script>
+
 </body>
 </html>
+
+```
