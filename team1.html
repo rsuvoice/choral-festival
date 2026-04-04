@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Rangsit Choral Festival</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap');
+        
+        body { margin: 0; font-family: 'Kanit', sans-serif; background-color: #fafafa; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 25px; animation: fadeIn 0.8s ease-out; }
+
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+
+        /* ปุ่มย้อนกลับ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #888;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        .back-btn:hover { color: #D4AF37; }
+        .back-btn::before { content: '←'; margin-right: 8px; font-size: 1.2rem; }
+
+        /* Header */
+        .header-section { text-align: center; margin-bottom: 60px; }
+        .header-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin: 0; color: #111; text-transform: uppercase; letter-spacing: 2px; }
+        .header-section p { color: #D4AF37; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; }
+
+        /* Section Styling */
+        .team-section { margin-bottom: 60px; }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: #111;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #D4AF37;
+        }
+
+        /*=============================================
+        =            Tier 1: Executive Grid            =
+        =============================================*/
+        .executive-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .executive-grid .team-card {
+            flex: 0 1 350px; /* ขนาดการ์ดผู้บริหารใหญ่กว่า */
+            background: #fff; 
+            border-radius: 12px; 
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            transition: 0.3s;
+            border: 1px solid #f0f0f0; 
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .executive-grid .team-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #D4AF37; 
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); 
+        }
+
+        /* รูปโปรไฟล์ระดับผู้บริหาร (ต้องมีรูปทุกคน) */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 25px;
+            border: 4px solid #f9f9f9;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* ข้อมูลบุคคล */
+        .role { 
+            color: #D4AF37; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            letter-spacing: 1.5px; 
+            text-transform: uppercase; 
+            margin-bottom: 10px; 
+            display: block;
+        }
+        .name-th { font-size: 1.3rem; font-weight: 500; color: #222; margin: 0 0 5px 0; }
+        .name-en { font-size: 0.95rem; color: #777; font-family: 'Montserrat', sans-serif; }
+
+
+        /*=============================================
+        =            Tier 2: Department Heads          =
+        =============================================*/
+        .heads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .head-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: 0.2s;
+        }
+        .head-item:hover {
+            border-color: #D4AF37;
+            background-color: #fdfdfa;
+        }
+        .head-item .role { font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 5px; }
+        .head-item .name-th { font-size: 1.1rem; }
+        .head-item .name-en { font-size: 0.85rem; }
+
+
+        /*=============================================
+        =            Tier 3: Full Team List            =
+        =============================================*/
+        .full-team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border: 1px solid #f0f0f0;
+        }
+        .dept-group h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .member-list { list-style: none; padding: 0; margin: 0; }
+        .member-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+        .member-item:last-child { border-bottom: none; }
+        .m-role { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px;}
+        .m-name-th { font-weight: 500; color: #333; font-size: 0.95rem; }
+        .m-name-en { color: #777; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; }
+
+        @media (max-width: 992px) {
+            .full-team-container { grid-template-columns: 1fr; padding: 25px; }
+        }
+        @media (max-width: 768px) {
+            .header-section h2 { font-size: 2rem; }
+            .executive-grid .team-card { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">BACK TO HOME</a>
+
+    <div class="header-section">
+        <p>The People Behind the Harmony</p>
+        <h2>Organizing Committee<br>& Production Team</h2>
+    </div>
+
+    <div class="team-section">
+        <div class="executive-grid">
+            
+            <div class="team-card">
+                <div class="profile-img" style="background-image: url('ลิงก์รูปภาพผู้อำนวยการ');"></div>
+                <span class="role">Festival Director</span>
+                <h3 class="name-th">ระบุชื่อ นามสกุล</h3>
+                <div class="name-en">NAME SURNAME</div>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-img" style="background-image: url('ลิงก์รูปภาพผู้อำนวยการฝ่ายศิลป์');"></div>
+                <span class="role">Artistic Director</span>
+                <h3 class="name-th">ระบุชื่อ นามสกุล</h3>
+                <div class="name-en">NAME SURNAME</div>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-img" style="background-image: url('ลิงก์รูปภาพผู้จัดการโครงการ');"></div>
+                <span class="role">Project Manager</span>
+                <h3 class="name-th">ปนัดดา ทรัพย์ภคกุล</h3>
+                <div class="name-en">PANADDA SUPPAKAKUL</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="section-title">Department Heads</div>
+        <div class="heads-grid">
+            
+            <div class="head-item">
+                <span class="role">Head of Production</span>
+                <h3 class="name-th">ระบุชื่อ นามสกุล</h3>
+                <div class="name-en">NAME SURNAME</div>
+            </div>
+
+            <div class="head-item">
+                <span class="role">Head of Liaison</span>
+                <h3 class="name-th">ระบุชื่อ นามสกุล</h3>
+                <div class="name-en">NAME SURNAME</div>
+            </div>
+
+            <div class="head-item">
+                <span class="role">Head of PR & Marketing</span>
+                <h3 class="name-th">ระบุชื่อ นามสกุล</h3>
+                <div class="name-en">NAME SURNAME</div>
+            </div>
+
+            <div class="head-item">
+                <span class="role">Head of Logistics</span>
+                <h3 class="name-th">ระบุชื่อ นามสกุล</h3>
+                <div class="name-en">NAME SURNAME</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="section-title">Full Production Team</div>
+        <div class="full-team-container">
+            
+            <div class="dept-group">
+                <h4>Production & Stage</h4>
+                <ul class="member-list">
+                    <li class="member-item">
+                        <span class="m-role">Stage Manager</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    <li class="member-item">
+                        <span class="m-role">Sound Engineer</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div class="dept-group">
+                <h4>Liaison & Hospitality</h4>
+                <ul class="member-list">
+                    <li class="member-item">
+                        <span class="m-role">Choir Liaison</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    <li class="member-item">
+                        <span class="m-role">Guest Liaison</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div class="dept-group">
+                <h4>PR, Media & Design</h4>
+                <ul class="member-list">
+                    <li class="member-item">
+                        <span class="m-role">Photographer</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    <li class="member-item">
+                        <span class="m-role">Graphic Designer</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    </ul>
+            </div>
+
+             <div class="dept-group">
+                <h4>Operations & Logistics</h4>
+                <ul class="member-list">
+                    <li class="member-item">
+                        <span class="m-role">Registrar</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    <li class="member-item">
+                        <span class="m-role">Venue Coordinator</span>
+                        <span class="m-name-th">ระบุชื่อ นามสกุล</span>
+                        <span class="m-name-en">NAME SURNAME</span>
+                    </li>
+                    </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
