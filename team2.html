@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Rangsit Choral Festival</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap');
+        
+        body { margin: 0; font-family: 'Kanit', sans-serif; background-color: #fafafa; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 25px; animation: fadeIn 0.8s ease-out; }
+
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+
+        /* ปุ่มย้อนกลับ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #888;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        .back-btn:hover { color: #D4AF37; }
+        .back-btn::before { content: '←'; margin-right: 8px; font-size: 1.2rem; }
+
+        /* Header */
+        .header-section { text-align: center; margin-bottom: 60px; }
+        .header-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin: 0; color: #111; text-transform: uppercase; letter-spacing: 2px; }
+        .header-section p { color: #D4AF37; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; }
+
+        /* Section Styling */
+        .team-section { margin-bottom: 60px; }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: #111;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #D4AF37;
+        }
+
+        /*=============================================
+        =            Tier 1: Executive Grid            =
+        =============================================*/
+        .executive-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .executive-grid .team-card {
+            flex: 0 1 350px; 
+            background: #fff; 
+            border-radius: 12px; 
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            transition: 0.3s;
+            border: 1px solid #f0f0f0; 
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .executive-grid .team-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #D4AF37; 
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); 
+        }
+
+        /* รูปโปรไฟล์ระดับผู้บริหาร */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 25px;
+            border: 4px solid #f9f9f9;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .role { 
+            color: #D4AF37; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            letter-spacing: 1.5px; 
+            text-transform: uppercase; 
+            margin-bottom: 10px; 
+            display: block;
+        }
+        .name-th { font-size: 1.3rem; font-weight: 500; color: #222; margin: 0 0 5px 0; }
+        .name-en { font-size: 0.95rem; color: #777; font-family: 'Montserrat', sans-serif; }
+
+        /*=============================================
+        =            Tier 2: Key Leaders Grid          =
+        =============================================*/
+        .heads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .head-item {
+            background: #fff;
+            padding: 25px 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .head-item:hover {
+            border-color: #D4AF37;
+            background-color: #fdfdfa;
+        }
+        .head-item .role { font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 8px; }
+        .head-item .name-th { font-size: 1.15rem; font-weight: 500; color: #333; margin: 0 0 4px 0;}
+        .head-item .name-en { font-size: 0.85rem; color: #777; }
+        .head-item .sub-desc { font-size: 0.75rem; color: #999; margin-top: 5px; font-style: italic; }
+
+        /*=============================================
+        =            Tier 3: Full Team List            =
+        =============================================*/
+        .full-team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border: 1px solid #f0f0f0;
+        }
+        .dept-group h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .sub-group-title {
+            font-weight: 600;
+            color: #D4AF37;
+            margin: 15px 0 10px 0;
+            font-size: 0.95rem;
+        }
+        .member-list { list-style: none; padding: 0; margin: 0; }
+        .member-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+        .member-item:last-child { border-bottom: none; }
+        .m-name-th { font-weight: 500; color: #333; font-size: 0.95rem; }
+        .m-name-en { color: #777; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; }
+
+        @media (max-width: 992px) {
+            .full-team-container { padding: 25px; }
+        }
+        @media (max-width: 768px) {
+            .header-section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">BACK TO HOME</a>
+
+    <div class="header-section">
+        <p>The People Behind the Harmony</p>
+        <h2>Organizing Committee<br>& Production Team</h2>
+    </div>
+
+    <div class="team-section">
+        <div class="executive-grid">
+            
+            <div class="team-card">
+                <div class="profile-img" style="background-image: url('');"></div>
+                <span class="role">Festival Director</span>
+                <h3 class="name-th">ดร. เด่น อยู่ประเสริฐ</h3>
+                <div class="name-en">DR. DENNY EUPRASERT</div>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-img" style="background-image: url('');"></div>
+                <span class="role">Artistic Director</span>
+                <h3 class="name-th">ดร. ดลหทัย อินทวงศ์</h3>
+                <div class="name-en">DR. DOLHATHAI INTAWONG</div>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-img" style="background-image: url('');"></div>
+                <span class="role">Project Manager</span>
+                <h3 class="name-th">ปนัดดา ทรัพย์ภคกุล</h3>
+                <div class="name-en">PANADDA SUPPAKAKUL</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="heads-grid">
+            
+            <div class="head-item">
+                <span class="role">Project Manager Assistant</span>
+                <h3 class="name-th">นิภาภรณ์ วงศ์อะคะ</h3>
+                <div class="name-en">NIPAPORN WONGAKA</div>
+            </div>
+
+            <div class="head-item">
+                <span class="role">Director of Audio Arts</span>
+                <h3 class="name-th">Graham Spice</h3>
+                <div class="name-en">LEAD SOUND ENGINEER</div>
+                <div class="sub-desc">Dir. of Collaborative Audio Arts, Shenandoah University USA</div>
+            </div>
+
+            <div class="head-item">
+                <span class="role">Associate Audio Director</span>
+                <h3 class="name-th">ณัฐณิชา สุนทร</h3>
+                <div class="name-en">NATNICHA SOUNTORN</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="full-team-container">
+            
+            <div class="dept-group">
+                <h4>Creative, PR & Choral Management</h4>
+                <p style="font-size: 0.8rem; color:#666; margin-top:-15px;">Assistant Artistic Direction, PR, Content, Social Media & Mass Choir Management</p>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">ศศินันท์ ตันละมัยงาม</span><span class="m-name-en">SASINAN TANLAMAINGAM</span></li>
+                    <li class="member-item"><span class="m-name-th">เชิญพร กำหนดศรี</span><span class="m-name-en">CHOENPHORN KAMNODSRI</span></li>
+                    <li class="member-item"><span class="m-name-th">ทอฝัน ว่องไวไพโรจน์</span><span class="m-name-en">THOFAN WONGWAIPAIROJE</span></li>
+                    <li class="member-item"><span class="m-name-th">ปุณยนุช ชาลาอาดิศัย</span><span class="m-name-en">PUNYANUT CHALA-ADISAI</span></li>
+                    <li class="member-item"><span class="m-name-th">พิมลพัทธ์ บูรณปุณยพร</span><span class="m-name-en">PIMONPAT BURANAPUNYAPORN</span></li>
+                    <li class="member-item"><span class="m-name-th">สาวิตรา สุขสมบูรณ์</span><span class="m-name-en">SAWITRA SUKSOMBOON</span></li>
+                    <li class="member-item"><span class="m-name-th">ธมลวรรณ พุ่มเจริญ</span><span class="m-name-en">THAMONWAN PHUMCHAREON</span></li>
+                    <li class="member-item"><span class="m-name-th">อธิพันธ์ วามะลุน</span><span class="m-name-en">ATIPUN WAMALOON</span></li>
+                    <li class="member-item"><span class="m-name-th">ศิลา ฮาดนารี</span><span class="m-name-en">SILA HADNAREE</span></li>
+                    <li class="member-item"><span class="m-name-th">พิทวัส กรสิทธิศักดิ์</span><span class="m-name-en">PITTAWAT KORNSITTISAK</span></li>
+                </ul>
+
+                <div class="sub-group-title">Artwork Team</div>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">พรรัชดา แก้วสุราษฎร์</span><span class="m-name-en">PRONRATCHADA KAEWSURAS</span></li>
+                    <li class="member-item"><span class="m-name-th">ปภินวิทย์ มะโนศิลป์</span><span class="m-name-en">PAPINVIDH MANOSILP</span></li>
+                </ul>
+            </div>
+
+            <div class="dept-group">
+                <h4>Choir Liaison Officers</h4>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">ณัฐนันท์ คงแก้ว</span><span class="m-name-en">NATTANAN KHONGKAEW</span></li>
+                    <li class="member-item"><span class="m-name-th">ณัฐวราพร นาจำปา</span><span class="m-name-en">NATWARAPORN NARCHAMPAR</span></li>
+                    <li class="member-item"><span class="m-name-th">กรณ์ ลาภประสิทธิ์</span><span class="m-name-en">KORN LAPPRASIT</span></li>
+                    <li class="member-item"><span class="m-name-th">ธนภัทร ภาษิตานนท์</span><span class="m-name-en">THANAPHAT PASITANONT</span></li>
+                    <li class="member-item"><span class="m-name-th">วรชน เติมวิทย์ขจร</span><span class="m-name-en">WORACHON TERMVITKAJOHN</span></li>
+                    <li class="member-item"><span class="m-name-th">วศิน บัวขาว</span><span class="m-name-en">WASIN BUAKHAO</span></li>
+                    <li class="member-item"><span class="m-name-th">รชต พิธีการณ์</span><span class="m-name-en">RACHATA PITEEKAN</span></li>
+                </ul>
+            </div>
+
+            <div class="dept-group">
+                <h4>Stage & Usher Management</h4>
+                
+                <div class="sub-group-title" style="margin-top: 0;">Backstage Team</div>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">จิรายุ ใจเปียง</span><span class="m-name-en">JIRAYU JAIPIANG</span></li>
+                    <li class="member-item"><span class="m-name-th">สิรวิชญ์ หุดากร</span><span class="m-name-en">SIRAWICH HUDAKORN</span></li>
+                    <li class="member-item"><span class="m-name-th">โสภน สุวรรณี</span><span class="m-name-en">SOPON SUWANNEE</span></li>
+                    <li class="member-item"><span class="m-name-th">ภูวดล บุญสูง</span><span class="m-name-en">PHUVADOL BOONSOONG</span></li>
+                </ul>
+
+                <div class="sub-group-title">Usher Team</div>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">วรเศรษฐ์ รัตนพุกวรพงค์</span><span class="m-name-en">WORRASATE RATTANAPUKVORAPHONG</span></li>
+                    <li class="member-item"><span class="m-name-th">เตชิต ธนากิตติศักดิ์</span><span class="m-name-en">TECHIT THANAKITTISAK</span></li>
+                    <li class="member-item"><span class="m-name-th">ณฐพงศ์ ทรงเผ่า</span><span class="m-name-en">NATHAPHONG SONGPAO</span></li>
+                    <li class="member-item"><span class="m-name-th">วันฟ้าใส สยามรัตนกิจ</span><span class="m-name-en">WANFAHSAI SIAMRATANAKIT</span></li>
+                    <li class="member-item"><span class="m-name-th">บูรพา ขำทรัพย์</span><span class="m-name-en">BURAPA KHAMSUB</span></li>
+                    <li class="member-item"><span class="m-name-th">วิชญ์พล ทองชิว</span><span class="m-name-en">WISHCHAPOL TONGCHIEW</span></li>
+                    <li class="member-item"><span class="m-name-th">มาร์วิน โซซ่า</span><span class="m-name-en">MARVIN SOSA</span></li>
+                    <li class="member-item"><span class="m-name-th">พีรพล เกตพันธ์</span><span class="m-name-en">PEERAPOOL KETPHAN</span></li>
+                    <li class="member-item"><span class="m-name-th">อัครพงษ์ วงศ์สง่า</span><span class="m-name-en">AKARAPONG VONGSANGAH</span></li>
+                    <li class="member-item"><span class="m-name-th">นันทพงศ์ ภู่พงษ์</span><span class="m-name-en">NANTAPONG POPONG</span></li>
+                </ul>
+            </div>
+
+             <div class="dept-group">
+                <h4>Operations & Venue Logistics</h4>
+                
+                <div class="sub-group-title" style="margin-top: 0;">Music Pavilion Team (ทีมศาลาดนตรี)</div>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">ธีระชัย สิริล้อสกุลเพชร</span><span class="m-name-en">TEERACHAI SIRILORSAKULPETCH</span></li>
+                    <li class="member-item"><span class="m-name-th">สุกษฏิ์พงษ์ เทศพันธุ์</span><span class="m-name-en">SUKRITPONG TEDPUN</span></li>
+                    <li class="member-item"><span class="m-name-th">ปรัชญา ปีตะวนิค</span><span class="m-name-en">PRACHYA PITAWANICK</span></li>
+                    <li class="member-item"><span class="m-name-th">ณัฐวุฒิ พร้อมขุนทด</span><span class="m-name-en">NATTHAWOOT PROMKUNTOD</span></li>
+                    <li class="member-item"><span class="m-name-th">ณัฐยา อภิสมโพธิ์</span><span class="m-name-en">NUTTAYA APISOMPO</span></li>
+                    <li class="member-item"><span class="m-name-th">วรฤทัย น้อยนาจารย์</span><span class="m-name-en">WORARUETHAI NOINAJAN</span></li>
+                </ul>
+
+                <div class="sub-group-title">Registration Team</div>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">ธีรดนย์ ไชยกันทา</span><span class="m-name-en">TEERADON CHAIKANTA</span></li>
+                    <li class="member-item"><span class="m-name-th">โมไนย สิทธิเดชากุล</span><span class="m-name-en">MONAI SITTHIDACHAKUL</span></li>
+                    <li class="member-item"><span class="m-name-th">กรวิชญ์ อินต๊ะวิกุล</span><span class="m-name-en">KORAWIT INTAWIKUN</span></li>
+                </ul>
+
+                <div class="sub-group-title">Support & Logistics (ฝ่ายสนับสนุน)</div>
+                <ul class="member-list">
+                    <li class="member-item"><span class="m-name-th">วงเดือน สวามีชัย</span><span class="m-name-en">WONGDUAN SAWAMEECHAI</span></li>
+                    <li class="member-item"><span class="m-name-th">ปฐมพงษ์ สุวรรณช่าง</span><span class="m-name-en">PATHOMPONG SUWANNACHANG</span></li>
+                    <li class="member-item"><span class="m-name-th">ภราดร ตันสุขี</span><span class="m-name-en">PHARADON TUNSUKEE</span></li>
+                    <li class="member-item"><span class="m-name-th">วีรวิทย์ วงศ์เทวัญ</span><span class="m-name-en">WEERAWIT WONGTEWAN</span></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
