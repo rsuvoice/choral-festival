@@ -58,17 +58,17 @@
         }
 
         /*=============================================
-        =            Tier 1: Executive Grid            =
+        =            Team Cards (Same Size)            =
         =============================================*/
-        .executive-grid {
+        .photo-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
-        .executive-grid .team-card {
-            flex: 0 1 350px; 
+        .team-card {
+            flex: 0 1 350px; /* ขนาดเท่ากันทั้งหมด */
             background: #fff; 
             border-radius: 12px; 
             overflow: hidden;
@@ -81,13 +81,13 @@
             flex-direction: column;
             justify-content: flex-start;
         }
-        .executive-grid .team-card:hover { 
+        .team-card:hover { 
             transform: translateY(-5px); 
             border-color: #D4AF37; 
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); 
         }
 
-        /* รูปโปรไฟล์ระดับผู้บริหาร */
+        /* รูปโปรไฟล์พื้นฐาน */
         .profile-img {
             width: 150px;
             height: 150px;
@@ -101,7 +101,7 @@
         }
 
         .role { 
-            color: #D4AF37; 
+            color: #D4AF37; /* สีทองสำหรับทีมหลัก */
             font-family: 'Montserrat', sans-serif; 
             font-size: 0.9rem; 
             font-weight: 700; 
@@ -112,35 +112,16 @@
         }
         .name-th { font-size: 1.3rem; font-weight: 500; color: #222; margin: 0 0 5px 0; }
         .name-en { font-size: 0.95rem; color: #777; font-family: 'Montserrat', sans-serif; }
-        .sub-desc-exec { font-size: 0.75rem; color: #999; margin-top: 8px; font-style: italic; }
+        .sub-desc { font-size: 0.75rem; color: #999; margin-top: 8px; font-style: italic; }
+
+        /* สไตล์ทางเลือก (Alt Theme) สำหรับ PMA และ Assoc Audio */
+        .team-card.alt-theme .role { color: #888; } /* เปลี่ยนเป็นสีเทา */
+        .team-card.alt-theme .profile-img { border-color: #eaeaea; } /* สีขอบรูปต่างออกไปนิดนึง */
+        .team-card.alt-theme:hover { border-color: #aaa; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+
 
         /*=============================================
-        =            Tier 2: Key Leaders Grid          =
-        =============================================*/
-        .heads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            justify-content: center;
-        }
-        .head-item {
-            background: #fff;
-            padding: 25px 20px;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            transition: 0.2s;
-            text-align: center;
-        }
-        .head-item:hover {
-            border-color: #D4AF37;
-            background-color: #fdfdfa;
-        }
-        .head-item .role { font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 8px; }
-        .head-item .name-th { font-size: 1.15rem; font-weight: 500; color: #333; margin: 0 0 4px 0;}
-        .head-item .name-en { font-size: 0.85rem; color: #777; }
-
-        /*=============================================
-        =            Tier 3: Full Team List            =
+        =            Full Team List Section            =
         =============================================*/
         .full-team-container {
             display: grid;
@@ -179,12 +160,22 @@
         .member-item:last-child { border-bottom: none; }
         .m-name-th { font-weight: 500; color: #333; font-size: 0.95rem; }
         .m-name-en { color: #777; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; }
+        
+        /* ป้ายกำกับหัวหน้าทีมเล็กๆ */
+        .team-lead-label {
+            font-size: 0.75rem;
+            color: #D4AF37;
+            font-weight: 600;
+            margin-left: 6px;
+            letter-spacing: 0.5px;
+        }
 
         @media (max-width: 992px) {
             .full-team-container { padding: 25px; }
         }
         @media (max-width: 768px) {
             .header-section h2 { font-size: 2rem; }
+            .team-card { flex: 1 1 100%; }
         }
     </style>
 </head>
@@ -199,8 +190,8 @@
     </div>
 
     <div class="team-section">
-        <div class="executive-grid">
-            
+        
+        <div class="photo-grid">
             <div class="team-card">
                 <div class="profile-img" style="background-image: url('');"></div>
                 <span class="role">Festival Director</span>
@@ -227,46 +218,51 @@
                 <span class="role">Director of Audio Arts</span>
                 <h3 class="name-th">Graham Spice</h3>
                 <div class="name-en">LEAD SOUND ENGINEER</div>
-                <div class="sub-desc-exec">Dir. of Collaborative Audio Arts,<br>Shenandoah University USA</div>
+                <div class="sub-desc">Dir. of Collaborative Audio Arts,<br>Shenandoah University USA</div>
             </div>
-
         </div>
-    </div>
 
-    <div class="team-section">
-        <div class="heads-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 400px));">
-            
-            <div class="head-item">
+        <div class="photo-grid">
+            <div class="team-card alt-theme">
+                <div class="profile-img" style="background-image: url('');"></div>
                 <span class="role">Project Manager Assistant</span>
                 <h3 class="name-th">นิภาภรณ์ วงศ์อะคะ</h3>
                 <div class="name-en">NIPAPORN WONGAKA</div>
             </div>
 
-            <div class="head-item">
+            <div class="team-card alt-theme">
+                <div class="profile-img" style="background-image: url('');"></div>
                 <span class="role">Associate Audio Director</span>
                 <h3 class="name-th">ณัฐณิชา สุนทร</h3>
                 <div class="name-en">NATNICHA SOUNTORN</div>
             </div>
-
         </div>
+
     </div>
 
     <div class="team-section">
+        <div class="section-title">Production Team</div>
         <div class="full-team-container">
             
             <div class="dept-group">
                 <h4>Creative, PR & Choral Management</h4>
                 <p style="font-size: 0.8rem; color:#666; margin-top:-15px;">Assistant Artistic Direction, PR, Content, Social Media & Mass Choir Management</p>
                 <ul class="member-list">
+                    <li class="member-item">
+                        <span class="m-name-th">พิมลพัทธ์ บูรณปุณยพร <span class="team-lead-label">(Team Lead)</span></span>
+                        <span class="m-name-en">PIMONPAT BURANAPUNYAPORN</span>
+                    </li>
+                    <li class="member-item">
+                        <span class="m-name-th">ศิลา ฮาดนารี <span class="team-lead-label">(Team Lead)</span></span>
+                        <span class="m-name-en">SILA HADNAREE</span>
+                    </li>
                     <li class="member-item"><span class="m-name-th">ศศินันท์ ตันละมัยงาม</span><span class="m-name-en">SASINAN TANLAMAINGAM</span></li>
                     <li class="member-item"><span class="m-name-th">เชิญพร กำหนดศรี</span><span class="m-name-en">CHOENPHORN KAMNODSRI</span></li>
                     <li class="member-item"><span class="m-name-th">ทอฝัน ว่องไวไพโรจน์</span><span class="m-name-en">THOFAN WONGWAIPAIROJE</span></li>
                     <li class="member-item"><span class="m-name-th">ปุณยนุช ชาลาอาดิศัย</span><span class="m-name-en">PUNYANUT CHALA-ADISAI</span></li>
-                    <li class="member-item"><span class="m-name-th">พิมลพัทธ์ บูรณปุณยพร</span><span class="m-name-en">PIMONPAT BURANAPUNYAPORN</span></li>
                     <li class="member-item"><span class="m-name-th">สาวิตรา สุขสมบูรณ์</span><span class="m-name-en">SAWITRA SUKSOMBOON</span></li>
                     <li class="member-item"><span class="m-name-th">ธมลวรรณ พุ่มเจริญ</span><span class="m-name-en">THAMONWAN PHUMCHAREON</span></li>
                     <li class="member-item"><span class="m-name-th">อธิพันธ์ วามะลุน</span><span class="m-name-en">ATIPUN WAMALOON</span></li>
-                    <li class="member-item"><span class="m-name-th">ศิลา ฮาดนารี</span><span class="m-name-en">SILA HADNAREE</span></li>
                     <li class="member-item"><span class="m-name-th">พิทวัส กรสิทธิศักดิ์</span><span class="m-name-en">PITTAWAT KORNSITTISAK</span></li>
                 </ul>
 
