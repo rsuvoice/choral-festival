@@ -58,7 +58,7 @@
         }
 
         /*=============================================
-        =            Team Cards (Same Size)            =
+        =            Team Cards (Same Size)           =
         =============================================*/
         .photo-grid {
             display: flex;
@@ -121,7 +121,7 @@
 
 
         /*=============================================
-        =            Full Team List Section            =
+        =            Full Team List Section           =
         =============================================*/
         .full-team-container {
             display: grid;
@@ -170,6 +170,59 @@
             letter-spacing: 0.5px;
         }
 
+        /*=============================================
+        =            Group Photo Section              =
+        =============================================*/
+        .group-photo-wrapper {
+            margin-top: 80px;
+            margin-bottom: 40px;
+        }
+        .group-photo-container {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+            position: relative;
+        }
+        .group-photo-img-wrap {
+            overflow: hidden;
+            width: 100%;
+            min-height: 300px;
+            background-color: #f5f5f5;
+        }
+        .group-photo-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .group-photo-container:hover .group-photo-img-wrap img {
+            transform: scale(1.03);
+        }
+        .group-photo-caption {
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+            position: relative;
+            z-index: 2;
+        }
+        .caption-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #111;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .caption-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
         @media (max-width: 992px) {
             .full-team-container { padding: 25px; }
         }
@@ -190,7 +243,6 @@
     </div>
 
     <div class="team-section">
-        
         <div class="photo-grid">
             <div class="team-card">
                 <div class="profile-img" style="background-image: url('https://drive.google.com/thumbnail?id=1yi2E4wchksEfCvV6_dv3LKLp0tk-Kqos&sz=w1000');"></div>
@@ -217,11 +269,12 @@
             </div>
 
             <div class="team-card">
-    <div class="profile-img" style="background-image: url(' https://drive.google.com/thumbnail?id=1CYJQxHmQ8y8r7f12AvB8ENE0pClopjcT&sz=w1000');"></div>
-    <span class="role">Director of Audio Arts</span>
-    <h3 class="name-th">Graham Spice</h3>
-    <div class="sub-desc">Director of Collaborative Audio Arts,<br>Shenandoah University, USA</div>
-</div>
+                <div class="profile-img" style="background-image: url(' https://drive.google.com/thumbnail?id=1CYJQxHmQ8y8r7f12AvB8ENE0pClopjcT&sz=w1000');"></div>
+                <span class="role">Director of Audio Arts</span>
+                <h3 class="name-th">Graham Spice</h3>
+                <div class="sub-desc">Director of Collaborative Audio Arts,<br>Shenandoah University, USA</div>
+            </div>
+        </div>
 
         <div class="photo-grid">
             <div class="team-card alt-theme">
@@ -238,13 +291,11 @@
                 <div class="name-en">NATNICHA SOUNTORN</div>
             </div>
         </div>
-
     </div>
 
     <div class="team-section">
         <div class="section-title">Production Team</div>
         <div class="full-team-container">
-            
             <div class="dept-group">
                 <h4>Creative, PR & Choral Management</h4>
                 <p style="font-size: 0.8rem; color:#666; margin-top:-15px;">Assistant Artistic Direction, PR, Content, Social Media & Mass Choir Management</p>
@@ -289,12 +340,11 @@
 
             <div class="dept-group">
                 <h4>Stage & Usher Management</h4>
-                
                 <div class="sub-group-title" style="margin-top: 0;">Backstage Team</div>
                 <ul class="member-list">
                     <li class="member-item"><span class="m-name-th">จิรายุ ใจเปียง</span><span class="m-name-en">JIRAYU JAIPIANG</span></li>
                     <li class="member-item"><span class="m-name-th">สิรวิชญ์ หุดากร</span><span class="m-name-en">SIRAWICH HUDAKORN</span></li>
-                    <li class="member-item"><span class="m-name-th">โสภน สุวรรณี</span><span class="m-name-en">SOPON SUWANNEE</span></li>
+                    <li class="member-item"><span class="m-name-th">โโสภน สุวรรณี</span><span class="m-name-en">SOPON SUWANNEE</span></li>
                     <li class="member-item"><span class="m-name-th">ภูวดล บุญสูง</span><span class="m-name-en">PHUVADOL BOONSOONG</span></li>
                 </ul>
 
@@ -315,7 +365,6 @@
 
              <div class="dept-group">
                 <h4>Operations & Venue Logistics</h4>
-                
                 <div class="sub-group-title" style="margin-top: 0;">Suryadhep Music Sala Team</div>
                 <ul class="member-list">
                     <li class="member-item"><span class="m-name-th">ธีระชัย สิริล้อสกุลเพชร</span><span class="m-name-en">TEERACHAI SIRILORSAKULPETCH</span></li>
@@ -341,7 +390,19 @@
                     <li class="member-item"><span class="m-name-th">วีรวิทย์ วงศ์เทวัญ</span><span class="m-name-en">WEERAWIT WONGTEWAN</span></li>
                 </ul>
             </div>
+        </div>
+    </div>
 
+    <div class="group-photo-wrapper">
+        <div class="section-title">One Big Family</div>
+        <div class="group-photo-container">
+            <div class="group-photo-img-wrap">
+                <img src="https://drive.google.com/thumbnail?id=1ZgvA1OxSIDV8RBGdRIlSJbwye3Lekey5&sz=w1000" alt="Rangsit Choral Festival Team & Choirs">
+            </div>
+            <div class="group-photo-caption">
+                <div class="caption-title">Rangsit Choral Festival Organizing Committee & Production Team</div>
+                <p class="caption-desc">ภาพความประทับใจรวมพลังทีมงาน คณาจารย์ และนักร้องประสานเสียงทุกคนบนเวที</p>
+            </div>
         </div>
     </div>
 
